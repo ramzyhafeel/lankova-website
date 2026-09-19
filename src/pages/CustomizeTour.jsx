@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   ArrowRight,
   ArrowLeft,
@@ -13,21 +13,55 @@ import {
   Car,
   Send,
   Sparkles,
+  Layers,
 } from 'lucide-react';
 import { PageHero } from '../components/ui/PageHero';
-import { JourneyLine } from '../components/ui/JourneyLine';
 import { createWhatsAppLink } from '../lib/whatsapp';
 import { customizerInterests, customizerDestinations } from '../data/destinations';
 import { getPackage } from '../data/packages';
 
+const serviceOptions = [
+  {
+    id: 'complete-tour',
+    title: 'Complete Tour (Vehicle + Hotels + Tours)',
+    desc: 'All-inclusive private itinerary with dedicated vehicle, licensed chauffeur-guide, handpicked accommodations, and sightseeing excursions.',
+    badge: 'All-Inclusive',
+  },
+  {
+    id: 'vehicle-driver',
+    title: 'Private Vehicle + Driver Only',
+    desc: 'Dedicated private air-conditioned car, SUV, or passenger van with a professional English-speaking driver for your self-planned route.',
+    badge: 'Chauffeur Hire',
+  },
+  {
+    id: 'airport-transfer',
+    title: 'Airport Transfer Only',
+    desc: 'Punctual 24/7 airport meet & greet pickup or drop-off between Colombo Bandaranaike International Airport (BIA) and any hotel island-wide.',
+    badge: 'Direct Transfer',
+  },
+  {
+    id: 'hotel-transfer',
+    title: 'Hotel-to-Hotel Transfer',
+    desc: 'Comfortable private point-to-point intercity transfer between any two hotels or destinations across Sri Lanka.',
+    badge: 'Intercity Transfer',
+  },
+  {
+    id: 'tailor-made',
+    title: 'Custom Tailor-Made Holiday',
+    desc: 'Fully bespoke island holiday designed completely from scratch around your specific timeframe, interests, and dream wishlist.',
+    badge: 'Bespoke Itinerary',
+  },
+];
+
 const steps = [
-  { num: 1, title: 'When are you visiting?', icon: Calendar },
-  { num: 2, title: "Who's travelling?", icon: Users },
-  { num: 3, title: 'What would you love to experience?', icon: Compass },
-  { num: 4, title: 'Where would you like to visit?', icon: MapPin },
-  { num: 5, title: 'Accommodation preference', icon: Bed },
-  { num: 6, title: 'Transportation', icon: Car },
-  { num: 7, title: 'Review & Send Request', icon: Send },
+  { num: 1, title: 'What service do you require?', short: 'Service', icon: Layers },
+  { num: 2, title: 'When are you visiting?', short: 'Dates', icon: Calendar },
+  { num: 3, title: "Who's travelling?", short: 'Travelers', icon: Users },
+  { num: 4, title: 'What would you love to experience?', short: 'Experiences', icon: Compass },
+  { num: 5, title: 'Where would you like to visit?', short: 'Destinations', icon: MapPin },
+  { num: 6, title: 'Accommodation preference', short: 'Hotels', icon: Bed },
+  { num: 7, title: 'Transportation', short: 'Vehicle', icon: Car },
+  { num: 8, title: 'Review & Send Request', short: 'Review', icon: Send },
 ];
 
 const accommodationOptions = [
@@ -50,10 +84,18 @@ export function CustomizeTour() {
   const [params] = useSearchParams();
   const presetPackage = params.get('package');
   const presetDest = params.get('destination');
+  const presetService = params.get('service');
   const pkg = presetPackage ? getPackage(presetPackage) : undefined;
+
+  const matchedService = serviceOptions.find(
+    (s) =>
+      s.title.toLowerCase().includes(presetService?.toLowerCase() || '') ||
+      s.id.toLowerCase() === presetService?.toLowerCase()
+  );
 
   const [step, setStep] = useState(1);
   const [data, setData] = useState({
+    service: matchedService?.title || serviceOptions[0].title,
     arrival: '',
     departure: '',
     adults: 2,
@@ -108,7 +150,10 @@ export function CustomizeTour() {
 
     return `Hello LANKOVA,
 
-I would like to plan a custom Sri Lanka tour.${data.packageName ? `\n(Based on package: ${data.packageName})` : ''}
+I would like to inquire about: ${data.service}${data.packageName ? `\n(Package Reference: ${data.packageName})` : ''}
+
+Service Required:
+• ${data.service}
 
 Travel Dates:
 ${data.arrival || 'Flexible'} to ${data.departure || 'Flexible'} ${tripDuration ? `(${tripDuration})` : ''}
@@ -141,7 +186,7 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
       <PageHero
         eyebrow="Trip Planner"
         title="Design Your Custom Sri Lanka Holiday"
-        subtitle="Follow our 7-step builder to tell us what you love. We will curate a tailored route with dedicated vehicle options and transparent pricing."
+        subtitle="Follow our 8-step builder to choose your service and customize your ideal journey. We will curate a tailored quote with dedicated vehicle options and transparent pricing."
         image="/hero/ella-nine-arch-bridge.jpg"
       />
 
@@ -150,18 +195,18 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
           {/* Progress Tracker Bar */}
           <div className="mb-10 bg-white rounded-2xl p-4 sm:p-6 border border-forest-800/10 shadow-sm">
             <div className="flex items-center justify-between text-xs font-bold text-forest-950 mb-3">
-              <span>Step {step} of 7</span>
+              <span>Step {step} of {steps.length}</span>
               <span className="text-gold-600">{steps[step - 1].title}</span>
             </div>
             <div className="h-2 w-full bg-ivory-200 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-gold-500 to-gold-400 transition-all duration-300 rounded-full"
-                style={{ width: `${(step / 7) * 100}%` }}
+                style={{ width: `${(step / steps.length) * 100}%` }}
               />
             </div>
 
             {/* Quick Step Indicators */}
-            <div className="hidden sm:grid grid-cols-7 gap-2 mt-4 pt-4 border-t border-forest-800/5 text-center">
+            <div className="hidden sm:grid grid-cols-8 gap-1.5 mt-4 pt-4 border-t border-forest-800/5 text-center">
               {steps.map((s) => {
                 const Icon = s.icon;
                 const isCurrent = s.num === step;
@@ -190,7 +235,7 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
                     >
                       {isDone ? <Check size={13} strokeWidth={2.5} /> : <Icon size={13} />}
                     </div>
-                    <span className="truncate w-full">{s.title.split(' ')[0]}</span>
+                    <span className="truncate w-full">{s.short || s.title.split(' ')[0]}</span>
                   </button>
                 );
               })}
@@ -199,8 +244,91 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
 
           {/* Wizard Card Body */}
           <div className="rounded-3xl bg-white p-6 sm:p-10 border border-forest-800/10 shadow-sm">
-            {/* STEP 1: DATES */}
+            {/* STEP 1: SERVICE SELECTION */}
             {step === 1 && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
+                    What service would you like to choose?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-forest-950/60">
+                    Select the service that matches your travel requirements across Sri Lanka.
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  {serviceOptions.map((srv, index) => {
+                    const selected = data.service === srv.title;
+                    return (
+                      <button
+                        key={srv.id}
+                        type="button"
+                        onClick={() => setData({ ...data, service: srv.title })}
+                        className={`w-full flex items-start justify-between p-4 sm:p-5 rounded-2xl border text-left transition-all group ${
+                          selected
+                            ? 'border-gold-500 bg-forest-950 text-white shadow-md'
+                            : 'border-forest-800/15 bg-ivory-50 text-forest-950/90 hover:bg-ivory-200 hover:border-forest-800/30'
+                        }`}
+                      >
+                        <div className="flex items-start gap-3.5 pr-2">
+                          <span
+                            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors ${
+                              selected
+                                ? 'bg-gold-500 text-forest-950'
+                                : 'bg-forest-950/10 text-forest-950 group-hover:bg-forest-950 group-hover:text-white'
+                            }`}
+                          >
+                            {index + 1}
+                          </span>
+                          <div>
+                            <div className="flex flex-wrap items-center gap-2 mb-1">
+                              <span
+                                className={`text-sm sm:text-base font-bold ${
+                                  selected ? 'text-gold-300' : 'text-forest-950'
+                                }`}
+                              >
+                                {srv.title}
+                              </span>
+                              {srv.badge && (
+                                <span
+                                  className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                                    selected
+                                      ? 'bg-gold-500/20 text-gold-300 border border-gold-400/30'
+                                      : 'bg-gold-500/15 text-gold-700 border border-gold-500/30'
+                                  }`}
+                                >
+                                  {srv.badge}
+                                </span>
+                              )}
+                            </div>
+                            <p
+                              className={`text-xs sm:text-sm leading-relaxed ${
+                                selected ? 'text-ivory-200/85' : 'text-forest-950/65'
+                              }`}
+                            >
+                              {srv.desc}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div
+                          className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-all mt-1 ${
+                            selected
+                              ? 'border-gold-400 bg-gold-400 text-forest-950'
+                              : 'border-forest-800/20 bg-white/60 text-transparent'
+                          }`}
+                        >
+                          <Check size={14} className="stroke-[3]" />
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* STEP 2: DATES */}
+            {step === 2 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
@@ -245,8 +373,8 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
               </div>
             )}
 
-            {/* STEP 2: TRAVELERS */}
-            {step === 2 && (
+            {/* STEP 3: TRAVELERS */}
+            {step === 3 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
@@ -336,8 +464,8 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
               </div>
             )}
 
-            {/* STEP 3: EXPERIENCES */}
-            {step === 3 && (
+            {/* STEP 4: EXPERIENCES */}
+            {step === 4 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
@@ -370,8 +498,8 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
               </div>
             )}
 
-            {/* STEP 4: DESTINATIONS */}
-            {step === 4 && (
+            {/* STEP 5: DESTINATIONS */}
+            {step === 5 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
@@ -420,8 +548,8 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
               </div>
             )}
 
-            {/* STEP 5: ACCOMMODATION */}
-            {step === 5 && (
+            {/* STEP 6: ACCOMMODATION */}
+            {step === 6 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
@@ -454,8 +582,8 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
               </div>
             )}
 
-            {/* STEP 6: VEHICLE */}
-            {step === 6 && (
+            {/* STEP 7: VEHICLE */}
+            {step === 7 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
@@ -488,8 +616,8 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
               </div>
             )}
 
-            {/* STEP 7: REVIEW & SEND */}
-            {step === 7 && (
+            {/* STEP 8: REVIEW & SEND */}
+            {step === 8 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-2xl font-bold text-forest-950 mb-1">
@@ -515,6 +643,10 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
 
                 {/* Summary Table */}
                 <div className="rounded-2xl bg-ivory-50 p-5 border border-forest-800/10 space-y-2.5 text-xs text-forest-950">
+                  <div className="flex justify-between items-center border-b border-forest-800/10 pb-2">
+                    <span className="text-forest-950/60 font-semibold">Service Chosen:</span>
+                    <span className="font-bold text-forest-950 text-right max-w-[65%]">{data.service}</span>
+                  </div>
                   <div className="flex justify-between">
                     <span className="text-forest-950/60 font-semibold">Travel Window:</span>
                     <span className="font-bold">{data.arrival || 'TBD'} &rarr; {data.departure || 'TBD'}</span>
@@ -563,7 +695,7 @@ ${data.notes || 'Looking forward to your customized itinerary proposal & quotati
                 <div />
               )}
 
-              {step < 7 && (
+              {step < 8 && (
                 <button
                   onClick={() => setStep(step + 1)}
                   className="inline-flex items-center gap-1.5 rounded-full bg-forest-950 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-gold-500 hover:text-forest-950 transition-all shadow-sm"

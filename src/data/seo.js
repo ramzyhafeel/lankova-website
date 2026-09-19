@@ -111,7 +111,7 @@ export const seo = {
     "/customize-tour": {
       title: `Customize Your Sri Lanka Tour | Interactive Trip Planner | ${site.brand}`,
       description:
-        "Design your dream Sri Lanka itinerary in 7 simple steps. Choose your dates, preferred destinations, comfort level, and get a tailored quote.",
+        "Design your dream Sri Lanka itinerary with our interactive trip planner. Choose your service, dates, preferred destinations, comfort level, and get a tailored quote.",
       canonical: site.domain + "/customize-tour"
     }
   }
