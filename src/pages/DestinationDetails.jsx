@@ -1,8 +1,6 @@
 import { useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import PageHero from "../components/ui/PageHero";
-import { getDestination, destinations } from "../data/destinations";
-import { packages } from "../data/packages";
+import { getDestination } from "../data/destinations";
 import { site } from "../data/site";
 import PackageCard from "../components/ui/PackageCard";
 import { createWhatsAppLink } from "../lib/whatsapp";

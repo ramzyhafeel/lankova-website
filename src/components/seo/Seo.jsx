@@ -61,15 +61,22 @@ export default function Seo({ path, override }) {
 
     const ogImage = seo.default.ogImage;
     setPropertyMeta("og:type", "website");
+    setPropertyMeta("og:site_name", "LANKOVA");
     setPropertyMeta("og:title", title);
     setPropertyMeta("og:description", description);
     setPropertyMeta("og:url", canonical);
     setPropertyMeta("og:image", ogImage);
+    setPropertyMeta("og:image:secure_url", ogImage);
+    setPropertyMeta("og:image:type", "image/png");
+    setPropertyMeta("og:image:width", "1357");
+    setPropertyMeta("og:image:height", "597");
+    setPropertyMeta("og:image:alt", title);
 
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
     setMeta("twitter:image", ogImage);
+    setMeta("twitter:image:alt", title);
 
     // JSON-LD:
     // - default provides Organization + WebSite
