@@ -209,6 +209,70 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 }
 
+function NumberInput({ value, onChange, min = 0, max = 99, step = 1, className = '' }) {
+  const numValue = typeof value === 'number' ? value : parseInt(value, 10) || 0;
+
+  const handleDecrement = () => {
+    onChange(Math.max(min, numValue - step));
+  };
+
+  const handleIncrement = () => {
+    onChange(Math.min(max, numValue + step));
+  };
+
+  const handleInputChange = (e) => {
+    const raw = e.target.value;
+    if (raw === '') {
+      onChange('');
+      return;
+    }
+    const parsed = parseInt(raw, 10);
+    if (!isNaN(parsed)) {
+      onChange(Math.max(min, Math.min(max, parsed)));
+    }
+  };
+
+  const handleBlur = () => {
+    if (value === '' || isNaN(value)) {
+      onChange(min);
+    }
+  };
+
+  return (
+    <div className={`inline-flex items-center rounded-xl bg-white border border-forest-800/20 p-0.5 shadow-sm ${className}`}>
+      <button
+        type="button"
+        onClick={handleDecrement}
+        disabled={numValue <= min}
+        className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-ivory-100 text-forest-950 font-bold text-sm hover:bg-forest-950 hover:text-white transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+        aria-label="Decrease"
+      >
+        -
+      </button>
+
+      <input
+        type="number"
+        min={min}
+        max={max}
+        value={value}
+        onChange={handleInputChange}
+        onBlur={handleBlur}
+        className="w-10 sm:w-12 text-center font-bold text-xs sm:text-sm text-forest-950 bg-transparent focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none py-1"
+      />
+
+      <button
+        type="button"
+        onClick={handleIncrement}
+        disabled={numValue >= max}
+        className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-ivory-100 text-forest-950 font-bold text-sm hover:bg-forest-950 hover:text-white transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+        aria-label="Increase"
+      >
+        +
+      </button>
+    </div>
+  );
+}
+
 /* ==========================================================================
    COMPONENT: CUSTOMIZE TOUR
    ========================================================================== */
@@ -344,9 +408,6 @@ export function CustomizeTour() {
     }
   };
 
-  const updateCounter = (field, delta, min = 0) => {
-    setForm((prev) => ({ ...prev, [field]: Math.max(min, (prev[field] || 0) + delta) }));
-  };
 
   const toggleArrayItem = (field, item) => {
     setForm((prev) => {
@@ -1228,57 +1289,29 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       </label>
                       <p className="text-[11px] text-forest-950/60">How many rooms does your party require?</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() => updateCounter('roomCount', -1, 1)}
-                        className="h-8 w-8 rounded-lg bg-ivory-200 font-bold text-forest-950 flex items-center justify-center hover:bg-forest-950 hover:text-white"
-                      >
-                        -
-                      </button>
-                      <span className="w-8 text-center font-serif text-base font-bold">{form.roomCount}</span>
-                      <button
-                        type="button"
-                        onClick={() => updateCounter('roomCount', 1)}
-                        className="h-8 w-8 rounded-lg bg-ivory-200 font-bold text-forest-950 flex items-center justify-center hover:bg-forest-950 hover:text-white"
-                      >
-                        +
-                      </button>
-                    </div>
+                    <NumberInput
+                      min={1}
+                      value={form.roomCount}
+                      onChange={(val) => updateField('roomCount', val)}
+                    />
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 text-center">
-                      <p className="text-xs font-bold text-forest-950 mb-1">Double Bed</p>
-                      <div className="flex items-center justify-center gap-2">
-                        <button type="button" onClick={() => updateCounter('roomDouble', -1)} className="h-6 w-6 rounded bg-white font-bold text-xs">-</button>
-                        <span className="font-bold text-sm">{form.roomDouble}</span>
-                        <button type="button" onClick={() => updateCounter('roomDouble', 1)} className="h-6 w-6 rounded bg-white font-bold text-xs">+</button>
-                      </div>
+                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 flex flex-col items-center gap-1.5 text-center">
+                      <p className="text-xs font-bold text-forest-950">Double Bed</p>
+                      <NumberInput min={0} value={form.roomDouble} onChange={(val) => updateField('roomDouble', val)} />
                     </div>
-                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 text-center">
-                      <p className="text-xs font-bold text-forest-950 mb-1">Twin Beds</p>
-                      <div className="flex items-center justify-center gap-2">
-                        <button type="button" onClick={() => updateCounter('roomTwin', -1)} className="h-6 w-6 rounded bg-white font-bold text-xs">-</button>
-                        <span className="font-bold text-sm">{form.roomTwin}</span>
-                        <button type="button" onClick={() => updateCounter('roomTwin', 1)} className="h-6 w-6 rounded bg-white font-bold text-xs">+</button>
-                      </div>
+                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 flex flex-col items-center gap-1.5 text-center">
+                      <p className="text-xs font-bold text-forest-950">Twin Beds</p>
+                      <NumberInput min={0} value={form.roomTwin} onChange={(val) => updateField('roomTwin', val)} />
                     </div>
-                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 text-center">
-                      <p className="text-xs font-bold text-forest-950 mb-1">Triple Room</p>
-                      <div className="flex items-center justify-center gap-2">
-                        <button type="button" onClick={() => updateCounter('roomTriple', -1)} className="h-6 w-6 rounded bg-white font-bold text-xs">-</button>
-                        <span className="font-bold text-sm">{form.roomTriple}</span>
-                        <button type="button" onClick={() => updateCounter('roomTriple', 1)} className="h-6 w-6 rounded bg-white font-bold text-xs">+</button>
-                      </div>
+                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 flex flex-col items-center gap-1.5 text-center">
+                      <p className="text-xs font-bold text-forest-950">Triple Room</p>
+                      <NumberInput min={0} value={form.roomTriple} onChange={(val) => updateField('roomTriple', val)} />
                     </div>
-                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 text-center">
-                      <p className="text-xs font-bold text-forest-950 mb-1">Family Suite</p>
-                      <div className="flex items-center justify-center gap-2">
-                        <button type="button" onClick={() => updateCounter('roomFamily', -1)} className="h-6 w-6 rounded bg-white font-bold text-xs">-</button>
-                        <span className="font-bold text-sm">{form.roomFamily}</span>
-                        <button type="button" onClick={() => updateCounter('roomFamily', 1)} className="h-6 w-6 rounded bg-white font-bold text-xs">+</button>
-                      </div>
+                    <div className="p-3 rounded-xl bg-ivory-50 border border-forest-800/10 flex flex-col items-center gap-1.5 text-center">
+                      <p className="text-xs font-bold text-forest-950">Family Suite</p>
+                      <NumberInput min={0} value={form.roomFamily} onChange={(val) => updateField('roomFamily', val)} />
                     </div>
                   </div>
                 </div>
@@ -1511,11 +1544,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Adults *</p>
                       <p className="text-[11px] text-forest-950/50">Age 12+</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('adults', -1, 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.adults}</span>
-                      <button type="button" onClick={() => updateCounter('adults', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={1}
+                      value={form.adults}
+                      onChange={(val) => updateField('adults', val)}
+                    />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -1523,11 +1556,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Children</p>
                       <p className="text-[11px] text-forest-950/50">Age 2–11</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('children', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.children}</span>
-                      <button type="button" onClick={() => updateCounter('children', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.children}
+                      onChange={(val) => updateField('children', val)}
+                    />
                   </div>
 
                   {form.children > 0 && (
@@ -1707,11 +1740,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Adults *</p>
                       <p className="text-[11px] text-forest-950/50">Age 12+</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('adults', -1, 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.adults}</span>
-                      <button type="button" onClick={() => updateCounter('adults', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={1}
+                      value={form.adults}
+                      onChange={(val) => updateField('adults', val)}
+                    />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -1719,11 +1752,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Children</p>
                       <p className="text-[11px] text-forest-950/50">Age 0–11</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('children', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.children}</span>
-                      <button type="button" onClick={() => updateCounter('children', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.children}
+                      onChange={(val) => updateField('children', val)}
+                    />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -1731,11 +1764,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Luggage Bags</p>
                       <p className="text-[11px] text-forest-950/50">Suitcases</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('luggageCount', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.luggageCount}</span>
-                      <button type="button" onClick={() => updateCounter('luggageCount', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.luggageCount}
+                      onChange={(val) => updateField('luggageCount', val)}
+                    />
                   </div>
                 </div>
 
@@ -2126,41 +2159,41 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                 )}
 
                 {/* Passengers & Bags */}
-                <div className="p-4 rounded-2xl bg-ivory-50 border border-forest-800/10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="flex items-center justify-between">
+                <div className="p-4 sm:p-5 rounded-2xl bg-ivory-50 border border-forest-800/10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="flex items-center justify-between sm:flex-col sm:items-start gap-2">
                     <div>
                       <p className="text-xs font-bold text-forest-950">Passengers *</p>
                       <p className="text-[11px] text-forest-950/50">Total guests</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('adults', -1, 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.adults}</span>
-                      <button type="button" onClick={() => updateCounter('adults', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={1}
+                      value={form.adults}
+                      onChange={(val) => updateField('adults', val)}
+                    />
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between sm:flex-col sm:items-start gap-2">
                     <div>
                       <p className="text-xs font-bold text-forest-950">Large Bags</p>
                       <p className="text-[11px] text-forest-950/50">Check-in luggage</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('largeBags', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.largeBags}</span>
-                      <button type="button" onClick={() => updateCounter('largeBags', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.largeBags}
+                      onChange={(val) => updateField('largeBags', val)}
+                    />
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between sm:flex-col sm:items-start gap-2">
                     <div>
                       <p className="text-xs font-bold text-forest-950">Small Bags</p>
                       <p className="text-[11px] text-forest-950/50">Hand luggage</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('smallBags', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.smallBags}</span>
-                      <button type="button" onClick={() => updateCounter('smallBags', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.smallBags}
+                      onChange={(val) => updateField('smallBags', val)}
+                    />
                   </div>
                 </div>
 
@@ -2473,11 +2506,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Adults *</p>
                       <p className="text-[11px] text-forest-950/50">Age 12+</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('adults', -1, 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.adults}</span>
-                      <button type="button" onClick={() => updateCounter('adults', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={1}
+                      value={form.adults}
+                      onChange={(val) => updateField('adults', val)}
+                    />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -2485,11 +2518,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Children</p>
                       <p className="text-[11px] text-forest-950/50">Age 0–11</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('children', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.children}</span>
-                      <button type="button" onClick={() => updateCounter('children', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.children}
+                      onChange={(val) => updateField('children', val)}
+                    />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -2497,11 +2530,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Luggage Bags</p>
                       <p className="text-[11px] text-forest-950/50">Total suitcases</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('luggageCount', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.luggageCount}</span>
-                      <button type="button" onClick={() => updateCounter('luggageCount', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.luggageCount}
+                      onChange={(val) => updateField('luggageCount', val)}
+                    />
                   </div>
                 </div>
 
@@ -3049,11 +3082,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Adults *</p>
                       <p className="text-[11px] text-forest-950/50">Age 12+</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('adults', -1, 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.adults}</span>
-                      <button type="button" onClick={() => updateCounter('adults', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={1}
+                      value={form.adults}
+                      onChange={(val) => updateField('adults', val)}
+                    />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -3061,11 +3094,11 @@ ${form.specialRequests || form.anythingElse || 'Looking forward to creating an u
                       <p className="text-xs font-bold text-forest-950">Children</p>
                       <p className="text-[11px] text-forest-950/50">Age 0–11</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button type="button" onClick={() => updateCounter('children', -1)} className="h-7 w-7 rounded bg-white font-bold text-xs">-</button>
-                      <span className="w-6 text-center font-bold text-sm">{form.children}</span>
-                      <button type="button" onClick={() => updateCounter('children', 1)} className="h-7 w-7 rounded bg-white font-bold text-xs">+</button>
-                    </div>
+                    <NumberInput
+                      min={0}
+                      value={form.children}
+                      onChange={(val) => updateField('children', val)}
+                    />
                   </div>
 
                   {form.children > 0 && (
