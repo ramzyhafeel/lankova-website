@@ -1,0 +1,48 @@
+
+
+export const vehicles= [
+  {
+    id: 'premium-sedan',
+    name: 'Premium Sedan',
+    capacity: '1\u20133 guests',
+    guests: '1\u20133',
+    image: 'https://images.pexels.com/photos/32281845/pexels-photo-32281845.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bestFor: ['Couples', 'Business travellers', 'Solo travellers'],
+    features: ['Air conditioned', 'Comfortable seating', 'Airport transfers', 'Long-distance travel'],
+    luggage: '2\u20133 medium bags',
+    description: 'A comfortable private sedan ideal for couples, solo travellers or business visitors. Smooth, quiet and perfect for airport transfers and city-to-city travel.',
+  },
+  {
+    id: 'family-suv',
+    name: 'Family / SUV',
+    capacity: '1\u20134 guests',
+    guests: '1\u20134',
+    image: 'https://images.pexels.com/photos/17612417/pexels-photo-17612417.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bestFor: ['Families', 'Couples', 'Small groups'],
+    features: ['Air conditioned', 'Comfortable long-distance travel', 'Extra luggage space', 'Higher seating'],
+    luggage: '3\u20134 medium bags',
+    description: 'A spacious SUV suitable for families or small groups. Extra room for luggage and comfortable seating for longer journeys across the island.',
+  },
+  {
+    id: 'private-van',
+    name: 'Private Van',
+    capacity: '4\u20137 guests',
+    guests: '4\u20137',
+    image: 'https://images.pexels.com/photos/36377064/pexels-photo-36377064.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bestFor: ['Families', 'Small groups', 'Multi-day tours'],
+    features: ['Air conditioning', 'Comfortable seating', 'Large luggage space', 'Multi-day tours'],
+    luggage: '6\u20138 large bags',
+    description: 'A private van perfect for families and small groups. Ample luggage space and comfortable seating for multi-day tours around Sri Lanka.',
+  },
+  {
+    id: 'group-van',
+    name: 'Group Van / Mini Coach',
+    capacity: '8+ guests',
+    guests: '8+',
+    image: 'https://images.pexels.com/photos/39075475/pexels-photo-39075475.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bestFor: ['Large families', 'Groups', 'Airport transfers'],
+    features: ['Group transportation', 'Air conditioning', 'Large luggage capacity', 'Multi-day tours'],
+    luggage: '8+ large bags',
+    description: 'A larger van or mini coach for groups of eight or more. Comfortable group transportation with plenty of space for luggage and multi-day journeys.',
+  },
+];

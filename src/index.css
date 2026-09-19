@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest-50: #f0f5f2;
+  --color-forest-100: #dbe8e1;
+  --color-forest-200: #b6d1c3;
+  --color-forest-300: #86b19c;
+  --color-forest-400: #548a73;
+  --color-forest-500: #356a54;
+  --color-forest-600: #265441;
+  --color-forest-700: #1d4334;
+  --color-forest-800: #123b2a;
+  --color-forest-900: #0d2e21;
+  --color-forest-950: #071a12;
+
+  --color-gold-50: #fbf8ef;
+  --color-gold-100: #f5ecd2;
+  --color-gold-200: #ecd9a3;
+  --color-gold-300: #e0c06d;
+  --color-gold-400: #d4ab48;
+  --color-gold-500: #c5a35a;
+  --color-gold-600: #b08d3a;
+  --color-gold-700: #8f6e2e;
+  --color-gold-800: #765929;
+  --color-gold-900: #634b27;
+
+  --color-ivory-50: #fdfcf8;
+  --color-ivory-100: #f8f5ee;
+  --color-ivory-200: #eee7da;
+  --color-ivory-300: #e2d8c4;
+  --color-ivory-400: #cfc3a4;
+
+  --color-ink: #17211b;
+
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-script: 'Caveat', cursive;
+}
+
+:root {
+  --forest-950: #071a12;
+  --forest-900: #0d2e21;
+  --forest-800: #123b2a;
+  --forest-700: #1d4334;
+  --gold-400: #d4ab48;
+  --gold-500: #c5a35a;
+  --ivory-100: #f8f5ee;
+  --ivory-50: #fdfcf8;
+  --ink: #17211b;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  background-color: #f8f5ee;
+  color: #17211b;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+::selection {
+  background: rgba(197, 163, 90, 0.3);
+  color: #071a12;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f5ee;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a35a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #123b2a;
+}
+
+/* Maximum editorial container width */
+.max-w-editorial {
+  max-width: 72rem;
+}
+
+/* Cards & Panels */
+.card-luxury {
+  border: 1px solid rgba(18, 59, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(7, 26, 18, 0.04);
+  background: #ffffff;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  box-shadow: 0 20px 45px rgba(7, 26, 18, 0.12);
+  border-color: rgba(212, 171, 72, 0.4);
+  transform: translateY(-4px);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-panel-dark {
+  background: rgba(7, 26, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 171, 72, 0.2);
+}
+
+/* Image zoom inside card */
+.zoom-card .zoom-image {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.zoom-card:hover .zoom-image {
+  transform: scale(1.08);
+}
+
+/* Subtle gold link underline */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #c5a35a;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* =========================================================================
+   Cinematic Drone Videography Motion
+   ========================================================================= */
+@keyframes dronePushIn {
+  0% {
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale3d(1.08, 1.08, 1) translate3d(0, -1.2%, 0);
+  }
+}
+
+@keyframes dronePullBack {
+  0% {
+    transform: scale3d(1.08, 1.08, 1) translate3d(0, -1%, 0);
+  }
+  100% {
+    transform: scale3d(1.01, 1.01, 1) translate3d(0, 0.4%, 0);
+  }
+}
+
+@keyframes dronePanRight {
+  0% {
+    transform: scale3d(1.04, 1.04, 1) translate3d(-1.5%, 0, 0);
+  }
+  100% {
+    transform: scale3d(1.08, 1.08, 1) translate3d(1.2%, -0.8%, 0);
+  }
+}
+
+@keyframes dronePanLeft {
+  0% {
+    transform: scale3d(1.04, 1.04, 1) translate3d(1.5%, 0, 0);
+  }
+  100% {
+    transform: scale3d(1.08, 1.08, 1) translate3d(-1.2%, -0.8%, 0);
+  }
+}
+
+.animate-drone-push {
+  animation: dronePushIn 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+.animate-drone-pull {
+  animation: dronePullBack 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+.animate-drone-right {
+  animation: dronePanRight 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+.animate-drone-left {
+  animation: dronePanLeft 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+/* Timeline progress */
+@keyframes timelineFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.animate-timeline-fill {
+  animation: timelineFill 5s linear forwards;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
