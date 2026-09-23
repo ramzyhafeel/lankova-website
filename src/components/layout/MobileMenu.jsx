@@ -84,7 +84,7 @@ export function MobileMenu({ open, onClose, onOpenPlanModal }) {
               onClose();
               if (onOpenPlanModal) onOpenPlanModal();
             }}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 py-3 text-xs font-bold uppercase tracking-wider text-forest-950 shadow-md hover:from-gold-400 hover:to-gold-300 transition-all"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-gold-500 to-gold-400 py-3 text-xs font-bold uppercase tracking-wider text-forest-950 shadow-md hover:from-gold-400 hover:to-gold-300 transition-all"
           >
             <Calendar size={15} strokeWidth={2.4} />
             <span>Plan My Trip</span>
