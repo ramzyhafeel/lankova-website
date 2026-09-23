@@ -37,8 +37,8 @@ export function MobileMenu({ open, onClose, onOpenPlanModal }) {
             <Link to="/" onClick={onClose} className="flex items-center">
               <img
                 src="/images/lankova-logo.png"
-                alt="Lankova Travel & Tours"
-                className="h-9 w-auto object-contain bg-white/95 rounded-lg px-2 py-1 shadow-sm"
+                alt="Lankova Travel & Tours - Sri Lanka Tourism Agency"
+                className="h-13 sm:h-14 w-auto object-contain"
               />
             </Link>
             <button

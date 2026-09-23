@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, Compass } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -9,41 +9,26 @@ import { PlanMyTripModal } from '../ui/PlanMyTripModal';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [planModalOpen, setPlanModalOpen] = useState(false);
   const location = useLocation();
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 25);
-
-      if (currentScrollY <= 15) {
-        setVisible(true);
-      } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-        setVisible(false); // Scrolling down
-      } else if (currentScrollY < lastScrollY.current) {
-        setVisible(true); // Scrolling up
-      }
-
-      lastScrollY.current = currentScrollY;
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out ${
-          visible ? 'translate-y-0' : '-translate-y-full pointer-events-none'
-        } ${
-          scrolled
-            ? 'bg-forest-950/95 backdrop-blur-md border-b border-forest-800/40 shadow-[0_4px_30px_rgba(0,0,0,0.3)] py-2.5 sm:py-3'
-            : 'bg-forest-950/85 backdrop-blur-sm border-b border-forest-800/30 py-3 sm:py-3.5'
+        className={`fixed top-0 left-0 right-0 z-40 navbar-glass-transition py-2 sm:py-2.5 ${
+          scrolled ? 'navbar-glass-scrolled' : 'navbar-glass-top'
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8">
@@ -51,15 +36,20 @@ export function Navbar() {
           <Link
             to="/"
             aria-label="LANKOVA Travel & Tours Homepage"
-            className="shrink-0 pr-2 transition-transform duration-300 hover:scale-[1.02] flex items-center"
+            className="shrink-0 transition-transform duration-300 hover:scale-[1.02] flex items-center"
           >
-            <div className="bg-white/95 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 shadow-sm inline-flex items-center">
-              <img
-                src="/images/lankova-logo.png"
-                alt="Lankova Travel & Tours - Sri Lanka Tourism Agency"
-                className="h-7 sm:h-8 lg:h-9 w-auto object-contain"
-              />
-            </div>
+            {/* Full Brand Logo for standard mobile, tablet and desktop */}
+            <img
+              src="/images/lankova-logo.png"
+              alt="Lankova Travel & Tours - Sri Lanka Tourism Agency"
+              className="h-10 min-[380px]:h-11 sm:h-12 md:h-13 lg:h-14 xl:h-[62px] w-auto object-contain hidden min-[360px]:block"
+            />
+            {/* Compact Icon only for ultra-narrow screens (< 360px) to prevent button collision */}
+            <img
+              src="/images/lankova-icon.png"
+              alt="Lankova Travel & Tours"
+              className="h-10 w-10 object-contain block min-[360px]:hidden rounded-md"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
