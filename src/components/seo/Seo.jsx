@@ -67,9 +67,9 @@ export default function Seo({ path, override }) {
     setPropertyMeta("og:url", canonical);
     setPropertyMeta("og:image", ogImage);
     setPropertyMeta("og:image:secure_url", ogImage);
-    setPropertyMeta("og:image:type", "image/png");
-    setPropertyMeta("og:image:width", "1357");
-    setPropertyMeta("og:image:height", "597");
+    setPropertyMeta("og:image:type", "image/jpeg");
+    setPropertyMeta("og:image:width", "1200");
+    setPropertyMeta("og:image:height", "630");
     setPropertyMeta("og:image:alt", title);
 
     setMeta("twitter:card", "summary_large_image");

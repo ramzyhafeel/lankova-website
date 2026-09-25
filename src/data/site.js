@@ -5,7 +5,7 @@ export const site = {
   subTitle: "Sri Lanka Tourism Agency",
   tagline: "Discover Sri Lanka. Travel with Confidence.",
   subTagline: "• PRIVATE TRAVEL & TRANSPORT •",
-  domain: "https://lankova.vercel.app",
+  domain: "https://lankova.lk",
   
   phone: "+94 77 123 4567",
   whatsappNumber: "94771234567",

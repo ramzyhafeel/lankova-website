@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lankova.vercel.app/sitemap.xml
+Sitemap: https://lankova.lk/sitemap.xml
