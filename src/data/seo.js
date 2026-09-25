@@ -1,6 +1,6 @@
 import { site } from "./site";
 
-const ogImage = `${site.domain}/images/lankova-social-preview.jpg`;
+const ogImage = `${site.domain}/images/lankova-social-preview.jpeg`;
 
 export const seo = {
   default: {
