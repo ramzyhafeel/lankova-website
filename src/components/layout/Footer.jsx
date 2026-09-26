@@ -11,11 +11,18 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 pb-10 border-b border-forest-800/40">
           {/* Official Logo Brand */}
           <div className="shrink-0">
-            <Link to="/" className="inline-block bg-white/95 rounded-xl px-3 py-1.5 shadow-sm">
+            <Link to="/" className="inline-block" aria-label="LANKOVA Travel & Tours Homepage">
+              {/* Full Brand Logo for standard mobile, tablet and desktop */}
               <img
                 src="/images/lankova-logo.png"
                 alt="Lankova Travel & Tours - Sri Lanka Tourism Agency"
-                className="h-10 sm:h-11 w-auto object-contain"
+                className="h-10 sm:h-11 md:h-12 w-auto object-contain hidden min-[360px]:block"
+              />
+              {/* Compact Icon only for ultra-narrow screens (< 360px) */}
+              <img
+                src="/images/lankova-icon.png"
+                alt="Lankova Travel & Tours"
+                className="h-10 w-10 object-contain block min-[360px]:hidden rounded-md"
               />
             </Link>
             <p className="mt-2 text-xs text-gold-300 font-medium tracking-wide">

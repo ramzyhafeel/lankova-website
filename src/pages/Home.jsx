@@ -19,6 +19,7 @@ import {
 import { Hero } from '../components/home/Hero';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { PackageCard } from '../components/ui/PackageCard';
+import { TravelStylePricing } from '../components/ui/TravelStylePricing';
 import { VehicleCard } from '../components/ui/VehicleCard';
 import { ReviewCard } from '../components/ui/ReviewCard';
 import { FAQAccordion } from '../components/ui/FAQAccordion';
@@ -240,6 +241,11 @@ export function Home() {
               subtitle="From brief 3-day cultural highlights to 14-day comprehensive expeditions, explore our most popular chauffeured journeys."
             />
           </Reveal>
+
+          {/* Travel Style Pricing */}
+          <div className="mt-10">
+            <TravelStylePricing />
+          </div>
 
           {/* Duration Filter Pills */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2">

@@ -5,6 +5,7 @@ import { PageHero } from '../components/ui/PageHero';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { PackageCard } from '../components/ui/PackageCard';
 import { Reveal } from '../components/ui/Reveal';
+import { TravelStylePricing } from '../components/ui/TravelStylePricing';
 import { packages, durationFilters } from '../data/packages';
 
 export function Packages() {
@@ -34,6 +35,11 @@ export function Packages() {
 
       <section className="py-16 sm:py-24 bg-ivory-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Travel Style Pricing */}
+          <div className="mb-10">
+            <TravelStylePricing />
+          </div>
+
           {/* Controls: Duration Filter & Search */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
             {/* Duration Pills */}
