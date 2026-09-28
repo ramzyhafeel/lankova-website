@@ -144,7 +144,7 @@ export function HeroFirstEyeShowcase() {
             >
               <img
                 src={pkg.image}
-                alt={pkg.subtitle}
+                alt={`Sri Lanka ${pkg.days} Tour - ${pkg.subtitle} with Lankova`}
                 className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
               />
 

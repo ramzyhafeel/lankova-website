@@ -48,10 +48,13 @@ export function Destinations() {
                 <div className="card-luxury zoom-card overflow-hidden rounded-2xl bg-white border border-forest-800/10 flex flex-col justify-between h-full">
                   <div>
                     {/* Image */}
-                    <div className="relative h-56 w-full overflow-hidden bg-forest-950">
+                    <Link
+                      to={`/destinations/${dest.slug}`}
+                      className="relative h-56 w-full overflow-hidden bg-forest-950 block group/img"
+                    >
                       <img
                         src={dest.image}
-                        alt={dest.name}
+                        alt={`${dest.name}, Sri Lanka - Tours & Travel Experiences`}
                         loading="lazy"
                         className="zoom-image h-full w-full object-cover object-center"
                       />
@@ -63,11 +66,11 @@ export function Destinations() {
                         <span className="text-[10px] uppercase tracking-wider font-bold text-gold-400 block">
                           {dest.region}
                         </span>
-                        <h3 className="font-serif text-2xl font-bold text-white leading-tight">
+                        <h3 className="font-serif text-2xl font-bold text-white leading-tight group-hover/img:text-gold-300 transition-colors">
                           {dest.name}
                         </h3>
                       </div>
-                    </div>
+                    </Link>
 
                     {/* Details */}
                     <div className="p-5">
@@ -80,18 +83,18 @@ export function Destinations() {
                   {/* Actions */}
                   <div className="p-5 pt-0 flex items-center justify-between border-t border-forest-800/10 mt-4">
                     <Link
-                      to={`/customize-tour?destination=${encodeURIComponent(dest.name)}`}
+                      to={`/destinations/${dest.slug}`}
                       className="inline-flex items-center gap-1 text-xs font-bold text-forest-900 hover:text-gold-600 transition-colors"
                     >
-                      <span>Add to Custom Trip</span>
+                      <span>Explore Guide</span>
                       <ArrowRight size={13} />
                     </Link>
 
                     <Link
-                      to="/packages"
+                      to={`/customize-tour?destination=${encodeURIComponent(dest.name)}`}
                       className="text-[11px] text-forest-700 hover:text-forest-950 font-semibold"
                     >
-                      View Tours
+                      Add to Custom Tour
                     </Link>
                   </div>
                 </div>

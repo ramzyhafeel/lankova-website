@@ -14,6 +14,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { getPackage, packages } from '../data/packages';
+import { destinations } from '../data/destinations';
 import { createWhatsAppLink, whatsappMessages } from '../lib/whatsapp';
 import { PlanMyTripModal } from '../components/ui/PlanMyTripModal';
 import { PackageCard } from '../components/ui/PackageCard';
@@ -56,7 +57,7 @@ export function PackageDetails() {
       <section className="relative min-h-[55vh] sm:min-h-[60vh] flex items-end overflow-hidden bg-forest-950 pt-28 pb-12 sm:pb-16 text-white">
         <img
           src={pkg.heroImage || pkg.image}
-          alt={pkg.name}
+          alt={`${pkg.name} - Sri Lanka Tour Package with Lankova`}
           className="absolute inset-0 h-full w-full object-cover object-center opacity-45 animate-drone-push"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/60 to-forest-950/40" />
@@ -150,16 +151,48 @@ export function PackageDetails() {
 
               {/* Route Summary */}
               {pkg.route && (
-                <div className="rounded-2xl bg-forest-900/5 p-4 border border-forest-800/10 flex items-center gap-3">
-                  <MapPin size={20} className="text-gold-600 shrink-0" />
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-forest-800 block">
-                      Tour Route
-                    </span>
-                    <span className="text-xs sm:text-sm font-semibold text-forest-950">
-                      {pkg.route}
-                    </span>
+                <div className="rounded-2xl bg-forest-900/5 p-4 border border-forest-800/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <MapPin size={20} className="text-gold-600 shrink-0" />
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-forest-800 block">
+                        Tour Route
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-forest-950">
+                        {pkg.route}
+                      </span>
+                    </div>
                   </div>
+
+                  {pkg.destinations && pkg.destinations.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5 pt-2 sm:pt-0">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-forest-950/50 mr-1 hidden sm:inline">
+                        Explore:
+                      </span>
+                      {pkg.destinations.map((dName) => {
+                        const dObj = destinations.find(
+                          (d) => d.name.toLowerCase() === dName.toLowerCase()
+                        );
+                        return dObj ? (
+                          <Link
+                            key={dObj.slug}
+                            to={`/destinations/${dObj.slug}`}
+                            className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-0.5 text-[11px] font-semibold text-forest-900 border border-forest-800/10 hover:border-gold-500 hover:text-gold-600 transition-all shadow-2xs"
+                          >
+                            <span>{dName}</span>
+                            <ArrowRight size={10} />
+                          </Link>
+                        ) : (
+                          <span
+                            key={dName}
+                            className="inline-block rounded-full bg-ivory-200 px-2 py-0.5 text-[11px] text-forest-800"
+                          >
+                            {dName}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               )}
 

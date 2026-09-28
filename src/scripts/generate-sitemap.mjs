@@ -21,7 +21,7 @@ async function main() {
   const destMod = await import(pathToFileURL(path.join(projectRoot, "src/data/destinations.js")).href);
   const pkgMod = await import(pathToFileURL(path.join(projectRoot, "src/data/packages.js")).href);
 
-  const domain = (siteMod.site?.domain || "https://lankova.vercel.app").replace(/\/$/, "");
+  const domain = (siteMod.site?.domain || "https://lankova.lk").replace(/\/$/, "");
 
   const staticRoutes = [
     "/",

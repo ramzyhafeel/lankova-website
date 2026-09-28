@@ -100,7 +100,7 @@ export function Hero() {
             >
               <img
                 src={place.image}
-                alt={place.name}
+                alt={`${place.name} in Sri Lanka - Lankova Travel & Tours`}
                 className={`h-full w-full object-cover object-center brightness-[0.70] contrast-[1.04] saturate-[1.06] ${
                   isCurrent ? place.kenBurnsClass : ''
                 }`}
@@ -125,7 +125,7 @@ export function Hero() {
         <div className="pt-1 pb-1.5 sm:pb-2 max-w-3xl text-center mx-auto flex flex-col items-center">
           {/* Serif Luxury Headline */}
           <h1 className="font-serif text-2xl sm:text-4xl lg:text-[2.85rem] font-bold tracking-tight text-white leading-[1.12]">
-            Discover Sri Lanka with{' '}
+            Private Sri Lanka Tours with{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-300 drop-shadow-[0_2px_12px_rgba(212,171,72,0.4)] font-extrabold inline-block">
               Lankova
             </span>
@@ -133,7 +133,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <p className="mt-1 max-w-xl mx-auto text-[11.5px] sm:text-xs lg:text-sm text-ivory-100/90 leading-relaxed font-normal">
-            Private transport and personalised travel experiences across Sri Lanka.
+            Tailor-made tour packages, private drivers, and authentic travel experiences across Sri Lanka.
           </p>
 
           {/* Highlighted Trust Points Bar (Professional High-Visibility UI) */}

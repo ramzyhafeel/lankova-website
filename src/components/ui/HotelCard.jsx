@@ -8,7 +8,7 @@ export function HotelCard({ hotel }) {
         <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-forest-950">
           <img
             src={hotel.image}
-            alt={hotel.name}
+            alt={`${hotel.name}, ${hotel.location} - Sri Lanka hotel accommodation`}
             loading="lazy"
             className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
           />

@@ -163,12 +163,12 @@ export function Home() {
                 align="left"
                 eyebrow="About Lankova Travel & Tours"
                 title="Sri Lanka, Experienced with Grace & Comfort"
-                subtitle="We believe travel is profoundly personal. Whether you wish to ascend the 5th-century rock fortress of Sigiriya, journey through misty tea plantations in Ella, or witness ocean giants along the southern coast, Lankova ensures every kilometer is relaxed, authentic, and memorable."
+                subtitle="Lankova Travel & Tours is a dedicated Sri Lanka tour operator crafting personalized journeys with private tours, tailor-made travel packages, and dependable chauffeur transportation. From Sigiriya and Kandy to Ella, Yala wildlife safaris, and pristine southern beaches, every itinerary is designed around you."
               />
 
               <div className="mt-6 space-y-3.5 text-xs sm:text-sm text-forest-950/75 leading-relaxed">
                 <p>
-                  As an island-wide private travel agency, we eliminate the stress of foreign driving, erratic train timetables, and impersonal tour buses. With your dedicated vehicle and English-speaking chauffeur, your holiday operates entirely on your rhythm.
+                  As an island-wide private travel agency, we eliminate the stress of foreign driving, erratic train timetables, and impersonal tour buses. With your dedicated air-conditioned vehicle and licensed English-speaking driver, discover Sri Lanka with authentic local knowledge, total flexibility, and warm hospitality.
                 </p>
               </div>
 
@@ -197,14 +197,14 @@ export function Home() {
                   <div className="overflow-hidden rounded-2xl shadow-md h-56 sm:h-64">
                     <img
                       src="/hero/sigiriya-rock-fortress.jpg"
-                      alt="Sigiriya Rock Fortress UNESCO site"
+                      alt="Sigiriya Rock Fortress UNESCO World Heritage Site in Sri Lanka"
                       className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                   </div>
                   <div className="overflow-hidden rounded-2xl shadow-md h-40 sm:h-48">
                     <img
                       src="https://images.pexels.com/photos/322471/pexels-photo-322471.jpeg?auto=compress&cs=tinysrgb&w=800"
-                      alt="Sri Lanka wild elephant safari"
+                      alt="Wild elephants on a private Sri Lanka wildlife safari tour with Lankova"
                       className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                   </div>
@@ -213,14 +213,14 @@ export function Home() {
                   <div className="overflow-hidden rounded-2xl shadow-md h-40 sm:h-48">
                     <img
                       src="/hero/ella-nine-arch-bridge.jpg"
-                      alt="Nine Arch Bridge Ella train"
+                      alt="Nine Arch Bridge in Ella, Sri Lanka with scenic mountain railway"
                       className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                   </div>
                   <div className="overflow-hidden rounded-2xl shadow-md h-56 sm:h-64">
                     <img
                       src="/hero/galle-fort-lighthouse.jpg"
-                      alt="Galle Fort Lighthouse coast"
+                      alt="Historic Galle Fort Lighthouse on the southern coast of Sri Lanka"
                       className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                   </div>
@@ -409,12 +409,12 @@ export function Home() {
             {destinations.slice(0, 6).map((dest, i) => (
               <Reveal key={dest.slug || dest.name} delay={i * 50}>
                 <Link
-                  to="/destinations"
+                  to={`/destinations/${dest.slug}`}
                   className="group relative h-48 sm:h-64 rounded-2xl overflow-hidden block shadow-sm hover:shadow-lg transition-all"
                 >
                   <img
                     src={dest.image}
-                    alt={dest.name}
+                    alt={`${dest.name}, Sri Lanka - Tours & Travel Experiences with Lankova`}
                     loading="lazy"
                     className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   />
@@ -423,7 +423,7 @@ export function Home() {
                     <span className="text-[10px] uppercase font-bold text-gold-400 tracking-wider">
                       {dest.region}
                     </span>
-                    <h3 className="font-serif text-sm sm:text-base font-bold text-white drop-shadow-sm">
+                    <h3 className="font-serif text-sm sm:text-base font-bold text-white drop-shadow-sm group-hover:text-gold-300 transition-colors">
                       {dest.name}
                     </h3>
                   </div>

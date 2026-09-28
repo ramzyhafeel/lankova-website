@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { seo } from "../../data/seo";
+import { getSeoForPath, seo } from "../../data/seo";
 
 function setMeta(name, content) {
   if (!content) return;
@@ -49,19 +49,24 @@ function setJsonLd(id, json) {
 
 export default function Seo({ path, override }) {
   useEffect(() => {
-    const base = seo.routes[path] || seo.default;
+    const metaData = override || getSeoForPath(path);
 
-    const title = override?.title || base.title || seo.default.title;
-    const description = override?.description || base.description || seo.default.description;
-    const canonical = override?.canonical || base.canonical || seo.default.canonical;
+    const title = metaData.title || seo.default.title;
+    const description = metaData.description || seo.default.description;
+    const canonical = metaData.canonical || seo.default.canonical;
+    const robots = metaData.robots || "index, follow";
+    const ogImage = metaData.ogImage || seo.default.ogImage;
 
+    // Document title and primary SEO meta
     document.title = title;
     setMeta("description", description);
+    setMeta("robots", robots);
     setCanonical(canonical);
 
-    const ogImage = seo.default.ogImage;
+    // OpenGraph
     setPropertyMeta("og:type", "website");
-    setPropertyMeta("og:site_name", "LANKOVA");
+    setPropertyMeta("og:site_name", "Lankova Travel & Tours");
+    setPropertyMeta("og:locale", "en_US");
     setPropertyMeta("og:title", title);
     setPropertyMeta("og:description", description);
     setPropertyMeta("og:url", canonical);
@@ -72,24 +77,17 @@ export default function Seo({ path, override }) {
     setPropertyMeta("og:image:height", "630");
     setPropertyMeta("og:image:alt", title);
 
+    // Twitter Card
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
     setMeta("twitter:image", ogImage);
     setMeta("twitter:image:alt", title);
 
-    // JSON-LD:
-    // - default provides Organization + WebSite
-    // - dynamic pages can override with override.jsonLd
-    const jsonLd = override?.jsonLd || base.jsonLd || seo.default.jsonLd;
+    // JSON-LD Structured Data
+    const jsonLd = metaData.jsonLd || seo.default.jsonLd;
     setJsonLd("jsonld-route", jsonLd);
-  }, [
-    path,
-    override?.title,
-    override?.description,
-    override?.canonical,
-    override?.jsonLd,
-  ]);
+  }, [path, override]);
 
   return null;
 }

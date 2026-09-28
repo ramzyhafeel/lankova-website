@@ -6,10 +6,13 @@ export function PackageCard({ pkg }) {
   return (
     <div className="group card-luxury zoom-card flex flex-col overflow-hidden rounded-2xl bg-white border border-forest-800/10">
       {/* Image container */}
-      <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-forest-950">
+      <Link
+        to={`/packages/${pkg.slug}`}
+        className="relative h-52 sm:h-60 w-full overflow-hidden bg-forest-950 block"
+      >
         <img
           src={pkg.image}
-          alt={pkg.name}
+          alt={`${pkg.name} - Private Sri Lanka Tour Package with Lankova`}
           loading="lazy"
           className="zoom-image h-full w-full object-cover object-center"
         />
@@ -31,7 +34,7 @@ export function PackageCard({ pkg }) {
             </span>
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5 sm:p-6 justify-between">

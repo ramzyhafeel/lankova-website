@@ -80,7 +80,7 @@ export function About() {
               <div className="relative overflow-hidden rounded-3xl shadow-xl border border-forest-800/20 h-96 sm:h-[480px]">
                 <img
                   src="/hero/sigiriya-rock-fortress.jpg"
-                  alt="Scenic view of Sigiriya Sri Lanka"
+                  alt="Sigiriya Rock Fortress view in Sri Lanka with Lankova Travel & Tours"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent" />

@@ -11,7 +11,7 @@ export function VehicleCard({ vehicle }) {
         <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-forest-950">
           <img
             src={vehicle.image}
-            alt={vehicle.name}
+            alt={`${vehicle.name} - Private driver vehicle hire in Sri Lanka`}
             loading="lazy"
             className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
           />

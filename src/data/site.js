@@ -1,8 +1,8 @@
 export const site = {
-  brand: "LANKOVA",
-  shortName: "LANKOVA",
+  brand: "Lankova",
+  shortName: "Lankova",
   legalName: "Lankova Travel & Tours",
-  subTitle: "Sri Lanka Tourism Agency",
+  subTitle: "Sri Lanka Tour Operator & Private Travel Agency",
   tagline: "Discover Sri Lanka. Travel with Confidence.",
   subTagline: "• PRIVATE TRAVEL & TRANSPORT •",
   domain: "https://lankova.lk",

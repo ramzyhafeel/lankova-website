@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Packages from './pages/Packages';
 import PackageDetails from './pages/PackageDetails';
 import Destinations from './pages/Destinations';
+import DestinationDetails from './pages/DestinationDetails';
 import Services from './pages/Services';
 import Transportation from './pages/Transportation';
 import Hotels from './pages/Hotels';
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/packages" element={<Packages />} />
             <Route path="/packages/:slug" element={<PackageDetails />} />
             <Route path="/destinations" element={<Destinations />} />
+            <Route path="/destinations/:slug" element={<DestinationDetails />} />
             <Route path="/services" element={<Services />} />
             <Route path="/transportation" element={<Transportation />} />
             <Route path="/hotels" element={<Hotels />} />
