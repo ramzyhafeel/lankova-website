@@ -7,8 +7,8 @@ export const site = {
   subTagline: "• PRIVATE TRAVEL & TRANSPORT •",
   domain: "https://lankova.lk",
   
-  phone: "+94 77 123 4567",
-  whatsappNumber: "94771234567",
+  phone: "+94 76 483 3746",
+  whatsappNumber: "94764833746",
   email: "info@lankova.com",
   location: "Sri Lanka",
   coverage: "Island Wide Service",
