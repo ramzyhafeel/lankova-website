@@ -110,8 +110,8 @@ export function Transportation() {
             <Reveal delay={120}>
               <div className="overflow-hidden rounded-3xl border border-forest-800/40 shadow-2xl h-80 sm:h-96">
                 <img
-                  src="https://images.pexels.com/photos/39075475/pexels-photo-39075475.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Lankova private airport transfer vehicle at Bandaranaike International Airport Sri Lanka"
+                  src="/images/vehicles/premium-sedan-rear.jpg"
+                  alt="Lankova private tourist chauffeur vehicle in Sri Lanka"
                   className="h-full w-full object-cover"
                 />
               </div>

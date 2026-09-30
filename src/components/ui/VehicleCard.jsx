@@ -23,6 +23,9 @@ export function VehicleCard({ vehicle }) {
         {/* Details */}
         <div className="p-5">
           <h3 className="font-serif text-xl font-bold text-forest-950">{vehicle.name}</h3>
+          {vehicle.model && (
+            <p className="text-xs text-gold-600 font-medium mt-0.5">{vehicle.model}</p>
+          )}
 
           {/* Specs grid */}
           <div className="mt-4 grid grid-cols-3 gap-2 py-3 border-y border-forest-800/10 text-center text-xs text-forest-950/80">

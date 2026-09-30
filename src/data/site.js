@@ -9,7 +9,7 @@ export const site = {
   
   phone: "+94 76 483 3746",
   whatsappNumber: "94764833746",
-  email: "info@lankova.com",
+  email: "info.lankavo@gmail.com",
   location: "Sri Lanka",
   coverage: "Island Wide Service",
   year: 2024,
