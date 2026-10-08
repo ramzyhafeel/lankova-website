@@ -68,6 +68,13 @@ export function Reviews() {
                 <MessageCircle size={16} className="text-emerald-400" />
                 <span>Chat on WhatsApp</span>
               </a>
+              <Link
+                to="/gallery"
+                className="inline-flex items-center gap-2 rounded-full border border-gold-400/50 bg-forest-900/60 px-7 py-3.5 text-xs font-semibold text-gold-300 hover:bg-gold-500 hover:text-forest-950 transition-all"
+              >
+                <span>View Guest Photo Gallery</span>
+                <ArrowRight size={14} />
+              </Link>
             </div>
           </div>
         </div>

@@ -29,6 +29,7 @@ import { packages } from '../data/packages';
 import { vehicles } from '../data/vehicles';
 import { reviews } from '../data/reviews';
 import { destinations, faqs } from '../data/destinations';
+import { hotelTiers } from '../data/hotels';
 import { createWhatsAppLink, whatsappMessages } from '../lib/whatsapp';
 
 // Why Choose Lankova (6 verified features)
@@ -394,7 +395,112 @@ export function Home() {
         </div>
       </section>
 
-      {/* 8. DESTINATIONS SHOWCASE */}
+      {/* 8. HANDPICKED ACCOMMODATIONS (3-STAR, 4-STAR & 5-STAR) */}
+      <section className="py-16 sm:py-24 bg-ivory-100 border-t border-forest-800/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Curated Comfort"
+              title="3-Star, 4-Star & 5-Star Hotel Arrangements"
+              subtitle="No rigid hotel rosters. We arrange vetted, handpicked accommodations across Sri Lanka tailored precisely to your budget and comfort."
+            />
+          </Reveal>
+
+          {/* 3 Tier Summary Cards */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {hotelTiers.map((tier, i) => (
+              <Reveal key={tier.id} delay={i * 80}>
+                <div
+                  className={`card-luxury h-full rounded-2xl bg-white overflow-hidden border flex flex-col justify-between ${
+                    tier.popular
+                      ? 'border-gold-400 ring-2 ring-gold-400/20 shadow-lg'
+                      : 'border-forest-800/10'
+                  }`}
+                >
+                  <div>
+                    <div className="relative h-48 w-full overflow-hidden bg-forest-950">
+                      <img
+                        src={tier.heroImage}
+                        alt={`${tier.name} Sri Lanka`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent" />
+                      <div className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-forest-950/80 backdrop-blur-sm px-3 py-1 text-xs font-bold text-gold-300 border border-gold-400/20">
+                        <div className="flex gap-0.5">
+                          {Array.from({ length: tier.stars }).map((_, idx) => (
+                            <Star key={idx} size={11} className="text-gold-400 fill-gold-400" />
+                          ))}
+                        </div>
+                        <span className="ml-1 text-[11px] uppercase tracking-wider text-white">
+                          {tier.stars} Star
+                        </span>
+                      </div>
+                      {tier.popular && (
+                        <div className="absolute top-3 right-3 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-forest-950 shadow-sm">
+                          Popular
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-6">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-gold-600 block mb-1">
+                        {tier.budgetLabel}
+                      </span>
+                      <h3 className="font-serif text-xl font-bold text-forest-950 mb-2">
+                        {tier.name}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-forest-950/70 leading-relaxed mb-4">
+                        {tier.description}
+                      </p>
+
+                      <ul className="space-y-2 border-t border-forest-800/10 pt-4">
+                        {tier.features.slice(0, 3).map((f) => (
+                          <li key={f} className="flex items-start gap-2 text-xs text-forest-950/80">
+                            <CheckCircle2 size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="p-6 pt-0">
+                    <Link
+                      to="/hotels"
+                      className="w-full inline-flex items-center justify-center gap-1.5 rounded-full border border-forest-800/20 bg-ivory-50 py-2.5 text-xs font-bold uppercase tracking-wider text-forest-950 hover:bg-forest-950 hover:text-white transition-all"
+                    >
+                      <span>Explore {tier.stars}-Star Options</span>
+                      <ArrowRight size={13} />
+                    </Link>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Bottom Actions */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4 text-center">
+            <Link
+              to="/hotels"
+              className="inline-flex items-center gap-2 rounded-full bg-forest-950 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-gold-500 hover:text-forest-950 transition-all shadow-md active:scale-95"
+            >
+              <span>View All Accommodation Details &amp; Pricing</span>
+              <ArrowRight size={14} />
+            </Link>
+
+            <Link
+              to="/customize-tour"
+              className="inline-flex items-center gap-2 rounded-full border border-forest-800/30 bg-white px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-forest-950 hover:bg-forest-900 hover:text-white transition-all"
+            >
+              <Calendar size={15} />
+              <span>Customize Tour with Hotels</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. DESTINATIONS SHOWCASE */}
       <section className="py-16 sm:py-24 bg-ivory-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
@@ -463,12 +569,23 @@ export function Home() {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-10 text-center flex flex-wrap justify-center items-center gap-4 sm:gap-6">
             <Link
               to="/reviews"
               className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-forest-900 hover:text-gold-600 transition-colors"
             >
               <span>Read More Traveler Reviews</span>
+              <ArrowRight size={14} />
+            </Link>
+
+            <span className="text-forest-800/30 hidden sm:inline">•</span>
+
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gold-600 hover:text-gold-700 transition-colors"
+            >
+              <Users size={14} className="text-gold-500" />
+              <span>See Real Guest Photos on Tour</span>
               <ArrowRight size={14} />
             </Link>
           </div>

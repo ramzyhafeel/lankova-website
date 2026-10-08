@@ -17,6 +17,8 @@ export const whatsappMessages = {
   driverHire: 'Hello LANKOVA, I would like to inquire about hiring a private vehicle and English-speaking chauffeur driver.',
   packageInquiry: (packageName, days) =>
     `Hello LANKOVA, I am interested in the ${days ? `${days} ` : ''}${packageName} tour package. Please share details and availability.`,
+  hotelInquiry: (tier = 'accommodations') =>
+    `Hello LANKOVA, I would like to inquire about arranging ${tier} for my trip to Sri Lanka. Please share recommendations and pricing based on our budget and travel comfort.`,
 };
 
 export default createWhatsAppLink;

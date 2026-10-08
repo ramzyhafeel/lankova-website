@@ -53,7 +53,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <ul className="hidden lg:flex items-center flex-nowrap gap-2.5 xl:gap-4 2xl:gap-6 px-1 xl:px-2">
+          <ul className="hidden lg:flex items-center flex-nowrap gap-1.5 xl:gap-3 2xl:gap-5 px-0.5 xl:px-2">
             {navLinks.map((link) => {
               const active =
                 link.to === '/'
@@ -64,7 +64,7 @@ export function Navbar() {
                 <li key={link.label} className="relative flex items-center">
                   <Link
                     to={link.to}
-                    className={`relative py-1 text-[12px] xl:text-[13px] 2xl:text-[14px] font-medium tracking-wide whitespace-nowrap transition-colors ${
+                    className={`relative py-1 px-1 text-[11px] xl:text-[12.5px] 2xl:text-[13.5px] font-medium tracking-wide whitespace-nowrap transition-colors ${
                       active
                         ? 'text-gold-400 font-semibold'
                         : 'text-ivory-100/85 hover:text-gold-300'

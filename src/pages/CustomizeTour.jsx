@@ -282,6 +282,7 @@ export function CustomizeTour() {
   const presetPackage = params.get('package');
   const presetDest = params.get('destination');
   const presetService = params.get('service');
+  const presetStarTier = params.get('starTier');
   const pkg = presetPackage ? getPackage(presetPackage) : undefined;
 
   // Identify matching service from query param
@@ -366,7 +367,14 @@ export function CustomizeTour() {
     childSeatRequired: false,
 
     // Hotel & Rooms (Complete Tour / Custom Holiday)
-    hotelCategory: hotelCategories[1],
+    hotelCategory:
+      presetStarTier === '3Star'
+        ? hotelCategories[0]
+        : presetStarTier === '4Star'
+        ? hotelCategories[1]
+        : presetStarTier === '5Star'
+        ? hotelCategories[2]
+        : hotelCategories[1],
     roomCount: 1,
     roomDouble: 1,
     roomTwin: 0,

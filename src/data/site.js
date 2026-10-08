@@ -26,6 +26,7 @@ export const navLinks = [
   { label: "Destinations", to: "/destinations" },
   { label: "Transportation", to: "/transportation" },
   { label: "Hotels", to: "/hotels" },
+  { label: "Gallery", to: "/gallery" },
   { label: "About Us", to: "/about" },
   { label: "Reviews", to: "/reviews" },
   { label: "Contact Us", to: "/contact" },

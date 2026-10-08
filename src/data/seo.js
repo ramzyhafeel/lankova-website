@@ -136,9 +136,9 @@ export const seo = {
       ]
     },
     "/hotels": {
-      title: "Hotels & Accommodations in Sri Lanka | Lankova Travel",
+      title: "3-Star, 4-Star & 5-Star Sri Lanka Hotels Arranged For Your Budget | Lankova",
       description:
-        "Handpicked boutique resorts, colonial tea bungalows, and luxury beach villas included in your personalized Lankova Sri Lanka private tour itinerary.",
+        "Handpicked 3-star, 4-star, and 5-star hotel accommodations across Sri Lanka arranged to match your budget and comfort. Verified hygiene, daily breakfast & seamless chauffeur coordination.",
       canonical: `${domain}/hotels`,
       robots: "index, follow",
       ogImage,
@@ -155,9 +155,9 @@ export const seo = {
       ]
     },
     "/gallery": {
-      title: "Sri Lanka Travel Moments & Photo Gallery | Lankova",
+      title: "Guest Travel Memories & Photo Gallery | Lankova Sri Lanka",
       description:
-        "Explore scenic vistas, wildlife encounters, cultural landmarks, and authentic moments captured on Lankova private tours across Sri Lanka.",
+        "View authentic guest photos, scenic highland landscapes, ancient citadels, and wildlife encounters from private chauffeured tours across Sri Lanka with Lankova.",
       canonical: `${domain}/gallery`,
       robots: "index, follow",
       ogImage,
