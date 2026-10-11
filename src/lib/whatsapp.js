@@ -15,8 +15,12 @@ export const whatsappMessages = {
   airport: 'Hello LANKOVA, I would like to arrange a private airport pickup/transfer at Bandaranaike International Airport.',
   customTour: 'Hello LANKOVA, I would like to create a customized private itinerary for my upcoming holiday in Sri Lanka.',
   driverHire: 'Hello LANKOVA, I would like to inquire about hiring a private vehicle and English-speaking chauffeur driver.',
-  packageInquiry: (packageName, days) =>
-    `Hello LANKOVA, I am interested in the ${days ? `${days} ` : ''}${packageName} tour package. Please share details and availability.`,
+  packageInquiry: (packageName, days, transportPrice, halfBoardPrice) =>
+    `Hello LANKOVA, I am interested in the ${packageName}${days ? ` (${days} Days)` : ''}${
+      transportPrice && halfBoardPrice
+        ? ` — Transport: $${transportPrice}/pp | Half Board (Hotel + Dinner & Breakfast): $${halfBoardPrice}/pp`
+        : ''
+    }. Please share details and availability.`,
   hotelInquiry: (tier = 'accommodations') =>
     `Hello LANKOVA, I would like to inquire about arranging ${tier} for my trip to Sri Lanka. Please share recommendations and pricing based on our budget and travel comfort.`,
 };

@@ -1,266 +1,260 @@
 // Data for Sri Lanka Accommodations (3-Star, 4-Star, 5-Star)
-// Lankova arranges handpicked accommodations based on traveler budget and comfort level.
-// No specific single hotel brands are hardcoded - properties are curated to match client itinerary.
+// Lankova arranges handpicked 3-star, 4-star, and 5-star hotels across Sri Lanka
+// tailored to each traveler's comfort preference, route, and budget.
 
 export const hotelTiers = [
   {
     id: '3-star',
     stars: 3,
     badge: 'Smart Value Choice',
-    name: '3-Star Comfort Stays',
-    tagline: 'Spotless cleanliness, authentic hospitality & exceptional value',
-    budgetLabel: 'Budget-Friendly & Value',
+    name: '3-Star Hotel Arrangements',
+    shortTitle: '3-Star Comfort',
+    tagline: 'Spotless cleanliness, warm Sri Lankan hospitality & dependable comfort',
+    budgetLabel: 'Budget-Friendly & Smart Value',
+    boardOptions: 'Half Board (Dinner & Breakfast) or Bed & Breakfast',
+    roomStandard: 'Clean Modern A/C En-Suite Rooms',
     description:
-      'Ideal for travelers seeking genuine Sri Lankan warmth, pristine cleanliness, and dependable amenities without overspending. Every property is hand-vetted for safety, comfort, and convenience.',
-    heroImage:
-      'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    gallery: [
-      'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
+      'We arrange verified 3-star hotels and boutique guesthouses for travelers seeking genuine Sri Lankan warmth, pristine rooms, and reliable modern amenities at an affordable budget.',
     features: [
-      'Private en-suite modern bathroom with reliable hot water',
-      'Whisper-quiet individual climate control / air conditioning',
-      'Complimentary high-speed Wi-Fi in rooms and common areas',
-      'Fresh daily breakfast included (Sri Lankan or Continental)',
-      'Safe, central locations close to sights and dining spots',
-      'Attentive local hosts & 24/7 reception desk assistance',
-      'Luggage handling and secure premises for peace of mind',
-      'Flexible bedding setups (Double, Twin, or Triple rooms)',
+      'Private en-suite modern bathroom with 24/7 hot water shower',
+      'Whisper-quiet individual air conditioning & climate control',
+      'Daily breakfast & dinner available (Half Board arrangement)',
+      'Complimentary high-speed Wi-Fi in guest rooms and lounges',
+      'Safe, convenient locations near cultural landmarks & towns',
+      'Attentive local hospitality & 24-hour front desk support',
+      'Flexible room setups: Double, Twin, Triple, or Family rooms',
+      'Dedicated chauffeur coordination & luggage handling included',
     ],
     idealFor:
-      'Value-conscious travelers, solo explorers, backpackers upgrading to comfort, and families on a sensible holiday budget.',
+      'Budget-conscious couples, solo travelers, friends, and families who want clean, safe, and comfortable stays every night without overspending.',
     sampleStyles: [
-      'Boutique Town Guesthouses',
-      'Contemporary Clean City Hotels',
-      'Tranquil Scenic Eco-Lodges',
+      'Verified 3-Star Town Hotels',
+      'Charming Boutique Guesthouses',
+      'Scenic Nature & Eco-Lodges',
     ],
-    diningStyle: 'Fresh traditional Sri Lankan & Continental breakfasts with local tea/coffee.',
-    poolStatus: 'Select properties feature cozy courtyard pools or direct garden access.',
+    diningStyle: 'Freshly prepared Sri Lankan & Continental breakfast and dinner.',
+    facilityHighlight: 'Comfortable en-suite A/C rooms, peaceful gardens & selected courtyard pools.',
   },
   {
     id: '4-star',
     stars: 4,
     popular: true,
     badge: 'Most Popular Choice',
-    name: '4-Star Premium Resorts & Hotels',
-    tagline: 'Elevated comfort, refreshing swimming pools & panoramic scenic views',
-    budgetLabel: 'Moderate & Superior Comfort',
+    name: '4-Star Hotel Arrangements',
+    shortTitle: '4-Star Superior',
+    tagline: 'Spacious deluxe rooms, refreshing swimming pools & scenic views',
+    budgetLabel: 'Superior Comfort & Resort Facilities',
+    boardOptions: 'Half Board (Dinner & Breakfast) or Full Board',
+    roomStandard: 'Spacious Deluxe Rooms with Balcony / Terrace',
     description:
-      'Our most requested accommodation tier. Strike the ideal balance between refined comfort, scenic locations, and sensible expenditure. Enjoy relaxing swimming pools, lush surroundings, and full-service dining.',
-    heroImage:
-      'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    gallery: [
-      'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
+      'Our most requested hotel arrangement tier. We book handpicked 4-star hotels and resorts offering the ideal balance between resort-style relaxation, scenic surroundings, and great value.',
     features: [
-      'Expansive swimming pools with sun loungers & pool towel service',
-      'Spacious modern guest rooms with private balcony or patio terrace',
-      'Multi-cuisine on-site restaurant serving breakfast and dinner buffets',
-      'Picturesque views of misty mountains, lush tea hills, or the ocean',
-      'In-room mini-fridge, tea/coffee maker & digital safety box',
-      'Interconnecting family rooms and deluxe suites available',
-      'Fitness centers, manicured gardens, and leisure spaces',
-      '24/7 front desk, concierge assistance, and room service',
+      'Full-size outdoor swimming pools with sun loungers & towel service',
+      'Spacious deluxe rooms with private balcony or garden terrace',
+      'Lavish Half Board buffet or chef-prepared dinner & breakfast daily',
+      'Scenic views of misty hill country peaks, lakes, or the ocean',
+      'In-room mini-fridge, Ceylon tea/coffee station & digital safe',
+      'Interconnecting family rooms and upgraded deluxe suites available',
+      'Landscaped tropical gardens, lounge bars & wellness facilities',
+      'Seamless priority check-in coordinated by your chauffeur',
     ],
     idealFor:
-      'Couples, families with children, honeymooners on a balanced budget, and travelers who love to unwind by the pool after sightseeing.',
+      'Couples, families with children, honeymooners, and travelers who love unwinding by a swimming pool with scenic views after daily sightseeing.',
     sampleStyles: [
-      'Hill Country Panoramic Resorts',
-      'Coastal Beachfront Hotels',
-      'Cultural Garden Retreats',
+      '4-Star Hill Country Resorts',
+      'Beachfront Resort Hotels',
+      'Lakefront & Cultural Retreats',
     ],
-    diningStyle: 'Multi-cuisine restaurants with lavish breakfast & dinner buffets, plus à la carte menus.',
-    poolStatus: 'Full-size outdoor swimming pools with dedicated children’s sections in most properties.',
+    diningStyle: 'Multi-cuisine restaurants with generous breakfast & dinner buffets.',
+    facilityHighlight: 'Outdoor swimming pools, scenic balconies, lounge spaces & room service.',
   },
   {
     id: '5-star',
     stars: 5,
     badge: 'Ultimate Luxury & Heritage',
-    name: '5-Star Luxury Resorts & Heritage Villas',
-    tagline: 'World-class opulence, colonial tea bungalows & private coastal villas',
-    budgetLabel: 'Premium Luxury / Bespoke',
+    name: '5-Star Hotel Arrangements',
+    shortTitle: '5-Star Luxury',
+    tagline: 'World-class luxury resorts, heritage tea bungalows & private villas',
+    budgetLabel: 'Five-Star Luxury & Bespoke Stays',
+    boardOptions: 'Half Board, Full Board, or Bespoke Fine Dining',
+    roomStandard: 'Luxury Suites, Heritage Bungalows & Private Villas',
     description:
-      'The pinnacle of Sri Lankan hospitality. Experience restored colonial tea planter estates, private infinity pool villas, renowned five-star beachfront sanctuaries, and architectural masterpieces with white-glove service.',
-    heroImage:
-      'https://images.pexels.com/photos/14024947/pexels-photo-14024947.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    gallery: [
-      'https://images.pexels.com/photos/14024947/pexels-photo-14024947.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/34790496/pexels-photo-34790496.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
+      'For guests seeking the finest hospitality in Sri Lanka, we arrange prestigious 5-star luxury resorts, restored colonial tea planter bungalows, and private beachfront pool villas.',
     features: [
-      'Private plunge pools or cliff-edge infinity pools overlooking dramatic vistas',
-      'World-class luxury spas offering authentic Ayurvedic and wellness therapies',
-      'Gourmet fine dining, chef-curated tastings, private candlelit beach dinners',
-      'Personalized butler service & dedicated guest experience manager',
-      'Iconic colonial heritage bungalows and award-winning boutique architecture',
-      'Lavish master suites with high-thread-count linens & deep soaking tubs',
-      'Direct private beach access, secluded tea estate trails, or riverfront serenity',
-      'VIP arrival welcome with fresh Ceylon king coconut, priority check-in & gifts',
+      'Panoramic infinity pools or private plunge pools with dramatic views',
+      'World-class luxury spas offering authentic Ayurveda & wellness rituals',
+      'Gourmet fine dining, international buffets & private candlelit dinners',
+      'Personalized butler service & dedicated guest experience hosts',
+      'Iconic colonial heritage estates & five-star architectural resorts',
+      'Opulent suites with premium linens, lounge areas & soaking tubs',
+      'Direct private beachfront access or secluded hill-country sanctuaries',
+      'VIP welcome reception, priority check-in & white-glove service',
     ],
     idealFor:
-      'Discerning world travelers, luxury honeymoons, executive getaways, milestone anniversaries, and high-end family holidays.',
+      'Luxury travelers, honeymooners, anniversary celebrations, VIP guests, and families seeking world-class comfort and exclusivity.',
     sampleStyles: [
+      '5-Star Oceanfront Luxury Resorts',
       'Colonial Tea Planter Bungalows',
-      'Private Oceanfront Villas',
-      'Iconic 5-Star Architectural Resorts',
+      'Private Luxury Pool Villas',
     ],
-    diningStyle: 'Signature fine dining, private chef experiences, artisanal wine cellars, and bespoke culinary journeys.',
-    poolStatus: 'Infinity pools, private plunge pools, heated hill country pools, and private cabana service.',
+    diningStyle: 'Signature gourmet dining, curated wine lists & grand international buffets.',
+    facilityHighlight: 'Infinity pools, luxury Ayurvedic spas, private beaches & butler care.',
   },
 ];
 
 export const tierComparison = [
   {
-    feature: 'Room Standard & Comfort',
-    star3: 'Clean, modern en-suite room with quiet AC and hot water shower',
-    star4: 'Spacious deluxe room with balcony / terrace, mini-fridge & tea maker',
-    star5: 'Opulent suites / villas with high thread count linens & deep soaking tubs',
+    feature: 'Room Standard & Space',
+    star3: 'Spotless modern en-suite room with quiet A/C & hot water shower',
+    star4: 'Spacious deluxe room with private balcony/patio, mini-fridge & safe',
+    star5: 'Luxury suites, colonial bungalows, or villas with deep soaking tubs',
+  },
+  {
+    feature: 'Meal Plan (Half Board)',
+    star3: 'Daily freshly prepared dinner & breakfast at the hotel',
+    star4: 'Daily multi-cuisine dinner & breakfast buffets included',
+    star5: 'Gourmet fine-dining or grand international dinner & breakfast',
   },
   {
     feature: 'Swimming Pool & Leisure',
-    star3: 'Courtyard splash pool or lovely tropical garden (in select properties)',
-    star4: 'Full-size outdoor swimming pool with sun loungers & towel service',
-    star5: 'Panoramic infinity pools, private plunge pools & luxury wellness spas',
+    star3: 'Tranquil tropical gardens (courtyard pool at select properties)',
+    star4: 'Full-size outdoor swimming pool with loungers & pool towels',
+    star5: 'Infinity pools, private plunge pools, fitness suite & luxury spa',
   },
   {
-    feature: 'Dining & Cuisine',
-    star3: 'Fresh daily breakfast (authentic Sri Lankan & Continental)',
-    star4: 'Multi-cuisine restaurant with buffet and à la carte options',
-    star5: 'Gourmet fine dining, private chef options & candlelit settings',
+    feature: 'Location & Atmosphere',
+    star3: 'Safe, convenient locations close to major sights and towns',
+    star4: 'Prime scenic settings overlooking mountains, lakes, or beaches',
+    star5: 'Exclusive beachfronts, private tea estates & iconic sanctuaries',
   },
   {
-    feature: 'Setting & Views',
-    star3: 'Central convenient locations near key attractions and dining',
-    star4: 'Scenic settings with lake, mountain, or coastal ocean views',
-    star5: 'Secluded prime locations: tea hill peaks, private beaches, heritage estates',
+    feature: 'Guest Support & Service',
+    star3: 'Warm Sri Lankan hosts & 24/7 reception desk assistance',
+    star4: 'Full concierge desk, room service, and bellhop luggage care',
+    star5: 'Personalized butler service, VIP check-in & bespoke hospitality',
   },
   {
-    feature: 'Personalized Service',
-    star3: 'Warm, friendly local hosts and 24/7 reception support',
-    star4: 'Professional concierge, room service, and luggage assistance',
-    star5: 'Dedicated butler service, VIP arrival check-in & personalized care',
+    feature: 'Chauffeur & Logistics',
+    star3: 'Chauffeur coordinates check-in, bags & stays in driver quarters',
+    star4: 'Chauffeur coordinates check-in, bags & stays in driver quarters',
+    star5: 'Chauffeur coordinates check-in, bags & stays in driver quarters',
   },
   {
-    feature: 'Lankova Driver Coordination',
-    star3: 'Seamless luggage handling & independent driver quarters arranged',
-    star4: 'Seamless luggage handling & independent driver quarters arranged',
-    star5: 'Seamless luggage handling & independent driver quarters arranged',
-  },
-  {
-    feature: 'Target Budget Level',
-    star3: 'Budget-conscious travelers seeking clean, reliable comfort',
-    star4: 'Moderate holiday budget seeking superior relaxation & resort amenities',
-    star5: 'Luxury & celebration travel seeking exclusive luxury without compromise',
+    feature: 'Best Suited Budget',
+    star3: 'Smart value & budget-conscious comfort',
+    star4: 'Balanced mid-to-upper comfort with full resort amenities',
+    star5: 'Uncompromising 5-star luxury & special celebrations',
   },
 ];
 
 export const whyBookWithLankova = [
   {
-    title: 'Personally Vetted & Inspected',
+    title: 'Personally Inspected Standards',
     description:
-      'We visit and test properties regularly to ensure impeccable cleanliness, functioning hot water, reliable air conditioning, and outstanding hospitality.',
+      'We verify cleanliness, quiet air conditioning, hot water pressure, linen quality, and food hygiene before arranging any 3-star, 4-star, or 5-star stay for our guests.',
   },
   {
-    title: 'Direct Negotiated Partner Rates',
+    title: 'Direct Corporate Hotel Rates',
     description:
-      'Benefit from our long-standing relationships with Sri Lankan hoteliers. We secure preferential rates with breakfast included, often beating online booking sites.',
+      'Through our established local partnerships across Sri Lanka, we secure preferential Half Board (Dinner & Breakfast) and Bed & Breakfast rates tailored to your budget.',
   },
   {
     title: 'Tailored to Your Exact Budget',
     description:
-      'Whether you have a fixed per-night limit or want to indulge on special nights, we structure your stays to deliver maximum comfort for every dollar spent.',
+      'Tell us your preferred star rating and target budget. We match you with the best-performing hotels on your route so every dollar delivers maximum comfort.',
   },
   {
-    title: 'Flexible "Mix & Match" Stays',
+    title: 'Mix & Match Across Your Route',
     description:
-      'Want 3 or 4-star hotels for busy cultural touring days, and a 5-star beachfront villa to unwind at the end? We easily combine tiers within your custom itinerary.',
+      'Choose practical 3-star or 4-star hotels during active sightseeing days in Sigiriya and Kandy, then upgrade to a 5-star beachfront resort on the South Coast.',
   },
   {
-    title: 'Seamless Driver Logistics',
+    title: 'Chauffeur & Check-In Coordination',
     description:
-      'Your private chauffeur handles your bags, coordinates arrival times with the front desk, and stays in nearby quarters—zero hassle for you.',
+      'Your English-speaking chauffeur communicates arrival times with each hotel, assists with luggage, and has separate driver accommodation arranged automatically.',
   },
   {
-    title: 'Zero Booking Stress or Hidden Fees',
+    title: 'All Taxes & Meals Clearly Stated',
     description:
-      'All local government taxes, service fees, and daily breakfasts are included upfront in your tour quote. No hidden surcharges on arrival.',
+      'No hidden check-out surprises. All hotel taxes, service charges, and your selected meal plan (Breakfast or Half Board Dinner & Breakfast) are included upfront.',
   },
 ];
 
 export const accommodationRegions = [
   {
     name: 'Cultural Triangle',
-    places: 'Sigiriya • Dambulla • Anuradhapura • Polonnaruwa',
-    description: 'Eco-nature lodges, serene lake-view chalets, and lush garden retreats.',
-    image: 'https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg?auto=compress&cs=tinysrgb&w=800',
+    places: 'Sigiriya • Dambulla • Habarana • Polonnaruwa',
+    description:
+      'We arrange peaceful nature resorts, garden hotels, and luxury eco-sanctuaries within minutes of Sigiriya Lion Rock and ancient heritage capitals.',
+    availableTiers: ['3-Star Comfort', '4-Star Superior', '5-Star Luxury'],
   },
   {
-    name: 'Central Hill Country',
+    name: 'Kandy & Central Highlands',
     places: 'Kandy • Nuwara Eliya • Ella • Hatton',
-    description: 'Colonial tea bungalows, mist-shrouded mountain hotels, and valley-view suites.',
-    image: 'https://images.pexels.com/photos/14024795/pexels-photo-14024795.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description:
+      'From scenic hillside hotels overlooking Kandy Lake to colonial-style tea country retreats and misty mountain resorts in Ella and Nuwara Eliya.',
+    availableTiers: ['3-Star Comfort', '4-Star Superior', '5-Star Luxury'],
   },
   {
-    name: 'Southern & West Coast',
-    places: 'Galle Fort • Bentota • Mirissa • Tangalle',
-    description: 'Beachfront resorts, private pool villas, and restored Dutch colonial mansions.',
-    image: 'https://images.pexels.com/photos/34790496/pexels-photo-34790496.jpeg?auto=compress&cs=tinysrgb&w=800',
+    name: 'South & West Coast Beaches',
+    places: 'Bentota • Galle • Unawatuna • Mirissa • Tangalle',
+    description:
+      'Relax in oceanfront 3-star boutique stays, 4-star palm-fringed beach resorts with expansive pools, or 5-star private coastal villas.',
+    availableTiers: ['3-Star Comfort', '4-Star Superior', '5-Star Luxury'],
   },
   {
-    name: 'Wildlife & Safaris',
-    places: 'Yala • Udawalawe • Wilpattu',
-    description: 'Comfortable safari camps, river lodges, and eco-retreats near park gates.',
-    image: 'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=800',
+    name: 'Wildlife & Safari Zones',
+    places: 'Yala • Udawalawe • Minneriya • Wilpattu',
+    description:
+      'Stay close to national park gates in comfortable safari hotels, riverside lodges, or luxury wilderness retreats ready for early-morning game drives.',
+    availableTiers: ['3-Star Comfort', '4-Star Superior', '5-Star Luxury'],
   },
   {
-    name: 'Capital & Transit',
-    places: 'Colombo • Negombo • Airport Vicinity',
-    description: 'Boutique transit villas with airport access and modern oceanside hotels.',
-    image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800',
+    name: 'Colombo & Negombo Transit',
+    places: 'Colombo City • Negombo Beach • Airport Vicinity',
+    description:
+      'Convenient, restful first-night and final-night hotels near Bandaranaike International Airport or in the heart of Colombo’s oceanfront promenade.',
+    availableTiers: ['3-Star Comfort', '4-Star Superior', '5-Star Luxury'],
   },
   {
-    name: 'East Coast Havens',
-    places: 'Trincomalee • Pasikudah • Nilaveli',
-    description: 'Pristine calm-water beach resorts and peaceful coastal retreats.',
-    image: 'https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=800',
+    name: 'East & Northern Coasts',
+    places: 'Trincomalee • Nilaveli • Pasikudah • Jaffna',
+    description:
+      'Seasonal calm-water beach resorts and well-appointed city hotels curated for east-coast sun seekers and northern cultural explorers.',
+    availableTiers: ['3-Star Comfort', '4-Star Superior', '5-Star Luxury'],
   },
 ];
 
 export const accommodationFaqs = [
   {
-    question: 'Can we combine 3-star, 4-star, and 5-star hotels in the same itinerary?',
+    question: 'Do you arrange 3-star, 4-star, and 5-star hotels across all of Sri Lanka?',
     answer:
-      'Yes, absolutely! This is one of our most popular requests. Many guests choose comfortable 3-star or 4-star hotels while exploring cultural sites and the hill country, and upgrade to a 5-star luxury villa or beachfront resort for their final days of seaside relaxation. We customize every night to match your preferences.',
+      'Yes! We arrange verified 3-star, 4-star, and 5-star hotels in every major destination across Sri Lanka—including Colombo, Negombo, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala, Udawalawe, Galle, Bentota, Mirissa, and Trincomalee.',
   },
   {
-    question: 'Can we book hotels ourselves and use Lankova only for private transport?',
+    question: 'What is included in your Half Board hotel arrangement?',
     answer:
-      'Yes! If you have hotel loyalty points, corporate discounts, or specific properties you have already booked, you can hire our licensed English-speaking chauffeur and private air-conditioned vehicle. We will provide seamless door-to-door transportation between your selected hotels.',
+      'Half Board means your hotel stay includes both Daily Dinner and Daily Breakfast at the hotel, alongside your private air-conditioned transport and English-speaking chauffeur. Our Half Board package rates start from $75/person (3 Days), $70/person (5 Days), $68/person (7 Days), $60/person (10 Days), and $55/person (14 Days).',
   },
   {
-    question: 'Are breakfast, taxes, and service fees included in your accommodation prices?',
+    question: 'Can we combine 3-star, 4-star, and 5-star hotels in a single trip?',
     answer:
-      'Yes. When Lankova arranges your accommodations as part of a tour package, daily breakfast, all Sri Lankan government tourism taxes, and hotel service charges are included upfront in your proposal. There are no surprise fees at the hotel front desk.',
+      'Absolutely. Many guests choose 3-star or 4-star hotels during busy sightseeing days in the Cultural Triangle and Hill Country, and then upgrade to a 5-star beachfront resort for the final days of relaxation. We tailor every night to your preference.',
   },
   {
-    question: 'How do you verify the quality and safety of the hotels?',
+    question: 'Will we know which specific hotels are booked before confirming?',
     answer:
-      'We do not rely solely on online ratings. Our team and seasoned drivers regularly inspect partner properties across Sri Lanka. We inspect air conditioning efficiency, hot water pressure, linen cleanliness, Wi-Fi reliability, food hygiene, and security to ensure you always experience exceptional comfort.',
+      'Yes. Once you share your travel dates, route, and preferred star tier (3-star, 4-star, or 5-star), our team sends you a personalized itinerary proposal listing the exact recommended hotels for your review and approval before any reservation is finalized.',
   },
   {
-    question: 'Where does our private chauffeur stay during the tour?',
+    question: 'Can we book our own hotels and only use Lankova for transport?',
     answer:
-      'Most hotels in Sri Lanka provide dedicated driver quarters. Where driver quarters are not available at a remote or boutique property, Lankova takes care of arranging comfortable nearby lodging for your driver. You never have to worry about accommodation or meals for your chauffeur.',
+      'Yes! If you prefer to book your own accommodations, you can choose our Transport-Only option ($33/person for 3 Days, $30 for 5 Days, $27 for 7 Days, or $25 for 10 Days) and we will provide seamless door-to-door private vehicle and chauffeur service.',
   },
   {
-    question: 'Can you accommodate families, dietary requirements, or special room requests?',
+    question: 'Can you arrange family rooms, twin beds, or special dietary meals?',
     answer:
-      'Certainly. Whether you require interconnecting family rooms, baby cots, twin single beds, ground-floor accessibility, or specific dietary arrangements (Vegetarian, Vegan, Halal, Gluten-Free), just notify us when planning your trip and we will coordinate everything with the hotels in advance.',
+      'Yes. Whether you need interconnecting family rooms, triple occupancy, twin beds, baby cots, or specific meal requirements (Halal, Vegetarian, Vegan, Gluten-Free), we coordinate directly with every hotel in advance.',
   },
 ];
 

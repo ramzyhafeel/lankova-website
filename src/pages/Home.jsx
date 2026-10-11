@@ -97,7 +97,17 @@ const howItWorksSteps = [
 export function Home() {
   const [activeDuration, setActiveDuration] = useState('All');
 
-  const featuredPackages = packages.slice(0, 6);
+  const featuredSlugs = [
+    '3-day-sri-lanka',
+    '5-day-sri-lanka',
+    '7-day-sri-lanka',
+    '10-day-sri-lanka',
+    '14-day-sri-lanka',
+    '6-day-sri-lanka',
+  ];
+  const featuredPackages = featuredSlugs
+    .map((s) => packages.find((p) => p.slug === s))
+    .filter(Boolean);
   const filteredPackages =
     activeDuration === 'All'
       ? featuredPackages
@@ -418,45 +428,40 @@ export function Home() {
                   }`}
                 >
                   <div>
-                    <div className="relative h-48 w-full overflow-hidden bg-forest-950">
-                      <img
-                        src={tier.heroImage}
-                        alt={`${tier.name} Sri Lanka`}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-forest-950/80 backdrop-blur-sm px-3 py-1 text-xs font-bold text-gold-300 border border-gold-400/20">
-                        <div className="flex gap-0.5">
-                          {Array.from({ length: tier.stars }).map((_, idx) => (
-                            <Star key={idx} size={11} className="text-gold-400 fill-gold-400" />
-                          ))}
+                    <div className="relative bg-gradient-to-br from-forest-950 via-forest-900 to-forest-950 px-6 py-5 text-white border-b border-gold-400/20">
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <div className="inline-flex items-center gap-1 rounded-full bg-gold-400/15 border border-gold-400/30 px-3 py-1 text-xs font-bold text-gold-300">
+                          <div className="flex gap-0.5">
+                            {Array.from({ length: tier.stars }).map((_, idx) => (
+                              <Star key={idx} size={11} className="text-gold-400 fill-gold-400" />
+                            ))}
+                          </div>
+                          <span className="ml-1 text-[11px] uppercase tracking-wider text-white">
+                            {tier.stars}-Star Tier
+                          </span>
                         </div>
-                        <span className="ml-1 text-[11px] uppercase tracking-wider text-white">
-                          {tier.stars} Star
-                        </span>
+                        {tier.popular && (
+                          <div className="rounded-full bg-gradient-to-r from-gold-500 to-gold-400 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-forest-950 shadow-sm">
+                            Popular
+                          </div>
+                        )}
                       </div>
-                      {tier.popular && (
-                        <div className="absolute top-3 right-3 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-forest-950 shadow-sm">
-                          Popular
-                        </div>
-                      )}
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-gold-400 block mb-1">
+                        {tier.budgetLabel}
+                      </span>
+                      <h3 className="font-serif text-xl font-bold text-white">
+                        {tier.name}
+                      </h3>
                     </div>
 
                     <div className="p-6">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-gold-600 block mb-1">
-                        {tier.budgetLabel}
-                      </span>
-                      <h3 className="font-serif text-xl font-bold text-forest-950 mb-2">
-                        {tier.name}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-forest-950/70 leading-relaxed mb-4">
+                      <p className="text-xs sm:text-sm text-forest-950/75 leading-relaxed mb-4">
                         {tier.description}
                       </p>
 
                       <ul className="space-y-2 border-t border-forest-800/10 pt-4">
-                        {tier.features.slice(0, 3).map((f) => (
-                          <li key={f} className="flex items-start gap-2 text-xs text-forest-950/80">
+                        {tier.features.slice(0, 4).map((f) => (
+                          <li key={f} className="flex items-start gap-2 text-xs text-forest-950/85">
                             <CheckCircle2 size={14} className="text-emerald-600 shrink-0 mt-0.5" />
                             <span>{f}</span>
                           </li>
@@ -470,7 +475,7 @@ export function Home() {
                       to="/hotels"
                       className="w-full inline-flex items-center justify-center gap-1.5 rounded-full border border-forest-800/20 bg-ivory-50 py-2.5 text-xs font-bold uppercase tracking-wider text-forest-950 hover:bg-forest-950 hover:text-white transition-all"
                     >
-                      <span>Explore {tier.stars}-Star Options</span>
+                      <span>Explore {tier.stars}-Star Arrangements</span>
                       <ArrowRight size={13} />
                     </Link>
                   </div>

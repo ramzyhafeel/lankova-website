@@ -57,6 +57,47 @@ export function Transportation() {
               </Reveal>
             ))}
           </div>
+
+          {/* Transport Per Person Rates */}
+          <Reveal delay={200}>
+            <div className="mt-14 rounded-3xl border border-forest-800/12 bg-white p-6 sm:p-8 shadow-sm">
+              <div className="text-center mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-600 block mb-1">
+                  Transparent Multi-Day Rates
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-forest-950">
+                  Private Transport Per Person Pricing
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-forest-950/70">
+                  Includes dedicated air-conditioned vehicle, licensed English-speaking chauffeur, fuel, highway tolls &amp; airport transfers.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                {[
+                  { days: '3 Days', price: 33 },
+                  { days: '5 Days', price: 30 },
+                  { days: '7 Days', price: 27 },
+                  { days: '10 Days', price: 25 },
+                ].map((tier) => (
+                  <div
+                    key={tier.days}
+                    className="rounded-2xl border border-forest-800/10 bg-ivory-50 p-4 text-center transition-all hover:border-gold-400 hover:bg-white hover:shadow-sm"
+                  >
+                    <span className="text-xs font-bold uppercase tracking-wider text-forest-800 block">
+                      {tier.days}
+                    </span>
+                    <p className="font-serif text-2xl sm:text-3xl font-extrabold text-forest-950 mt-1">
+                      ${tier.price}
+                    </p>
+                    <span className="text-[11px] text-forest-950/60 mt-0.5 block">
+                      per person
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

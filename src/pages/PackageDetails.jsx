@@ -98,12 +98,12 @@ export function PackageDetails() {
               <span className="font-bold text-sm">{pkg.days} Days / {pkg.nights} Nights</span>
             </div>
             <div>
-              <span className="text-[10px] uppercase font-bold text-gold-600 block">Transport</span>
-              <span className="font-semibold truncate block max-w-[140px]">Private Vehicle &amp; Driver</span>
+              <span className="text-[10px] uppercase font-bold text-gold-600 block">Transport Only</span>
+              <span className="font-extrabold text-sm text-forest-950">${pkg.transportPrice} <span className="text-[11px] font-medium text-forest-950/60">/ person</span></span>
             </div>
             <div>
-              <span className="text-[10px] uppercase font-bold text-gold-600 block">Accommodations</span>
-              <span className="font-semibold truncate block max-w-[140px]">Comfort / Luxury</span>
+              <span className="text-[10px] uppercase font-bold text-gold-600 block">Half Board (Hotel)</span>
+              <span className="font-extrabold text-sm text-forest-950">${pkg.halfBoardPrice} <span className="text-[11px] font-medium text-forest-950/60">/ person (Dinner &amp; B&apos;fast)</span></span>
             </div>
             <div>
               <span className="text-[10px] uppercase font-bold text-gold-600 block">Destinations</span>
@@ -122,7 +122,7 @@ export function PackageDetails() {
             </button>
 
             <a
-              href={createWhatsAppLink(whatsappMessages.packageInquiry(pkg.name, pkg.days))}
+              href={createWhatsAppLink(whatsappMessages.packageInquiry(pkg.name, pkg.days, pkg.transportPrice, pkg.halfBoardPrice))}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#20ba5a] transition-all shadow-sm active:scale-95"
@@ -310,12 +310,54 @@ export function PackageDetails() {
             <div className="space-y-6">
               <div className="sticky top-32 card-luxury rounded-2xl bg-white p-6 border border-forest-800/10 shadow-md">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-gold-600 block mb-1">
-                  Private Tour Inquiries
+                  Package Pricing ({pkg.days} Days)
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-forest-950 mb-3">
                   Ready to Book or Customize?
                 </h3>
-                <p className="text-xs sm:text-sm text-forest-950/70 leading-relaxed mb-6">
+
+                {/* Dual Pricing Options */}
+                <div className="mb-5 space-y-2.5">
+                  <div className="rounded-xl border border-forest-800/12 bg-ivory-50 p-3.5 flex items-center justify-between">
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-forest-900 block">
+                        Transport Only
+                      </span>
+                      <span className="text-[11px] text-forest-950/60">
+                        Private Vehicle &amp; Chauffeur
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-serif text-2xl font-extrabold text-forest-950">
+                        ${pkg.transportPrice}
+                      </span>
+                      <span className="text-[10px] font-medium text-forest-950/60 block">
+                        per person
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-gold-400/40 bg-forest-950 p-3.5 text-white flex items-center justify-between">
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-gold-400 block">
+                        Half Board Package
+                      </span>
+                      <span className="text-[11px] text-ivory-100/75">
+                        Hotel + Dinner &amp; Breakfast
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-serif text-2xl font-extrabold text-white">
+                        ${pkg.halfBoardPrice}
+                      </span>
+                      <span className="text-[10px] font-medium text-gold-300 block">
+                        per person
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-forest-950/70 leading-relaxed mb-5">
                   Every tour can be modified with your preferred dates, hotel categories, and custom stops.
                 </p>
 
@@ -329,7 +371,7 @@ export function PackageDetails() {
                   </button>
 
                   <a
-                    href={createWhatsAppLink(whatsappMessages.packageInquiry(pkg.name, pkg.days))}
+                    href={createWhatsAppLink(whatsappMessages.packageInquiry(pkg.name, pkg.days, pkg.transportPrice, pkg.halfBoardPrice))}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-50 py-3 text-xs font-bold uppercase tracking-wider text-emerald-800 hover:bg-emerald-100 transition-all"

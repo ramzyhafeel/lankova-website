@@ -2,7 +2,23 @@
 
 
 
-export const packages= [
+export function getPackagePricing(days) {
+  if (days <= 4) {
+    return { transportPrice: 33, halfBoardPrice: 75 };
+  }
+  if (days <= 6) {
+    return { transportPrice: 30, halfBoardPrice: 70 };
+  }
+  if (days <= 8) {
+    return { transportPrice: 27, halfBoardPrice: 68 };
+  }
+  if (days <= 11) {
+    return { transportPrice: 25, halfBoardPrice: 60 };
+  }
+  return { transportPrice: 25, halfBoardPrice: 55 };
+}
+
+const rawPackages = [
   {
     slug: '3-day-sri-lanka',
     name: '3 Days Sri Lanka Tour',
@@ -492,9 +508,30 @@ export const packages= [
   },
 ];
 
+export const packages = rawPackages.map((pkg) => {
+  const { transportPrice, halfBoardPrice } = getPackagePricing(pkg.days);
+  return {
+    ...pkg,
+    transportPrice,
+    halfBoardPrice,
+  };
+});
+
 export function getPackage(slug) {
   return packages.find((p) => p.slug === slug);
 }
 
-export const durationFilters = ['All', '3 Days', '5 Days', '6 Days', '7 Days', '8 Days', '9 Days', '14 Days'];
+export const durationFilters = [
+  'All',
+  '3 Days',
+  '5 Days',
+  '7 Days',
+  '10 Days',
+  '14 Days',
+  '4 Days',
+  '6 Days',
+  '8 Days',
+  '9 Days',
+];
 export const experienceFilters = ['Culture', 'Wildlife', 'Ayurveda', 'Beach', 'Adventure', 'Family', 'Honeymoon'];
+
