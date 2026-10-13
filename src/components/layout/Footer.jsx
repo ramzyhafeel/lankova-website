@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 pb-10 border-b border-forest-800/40">
           {/* Official Logo Brand */}
           <div className="shrink-0">
-            <Link to="/" className="inline-block" aria-label="LANKOVA Travel & Tours Homepage">
+            <Link to="/" className="inline-block" aria-label="Lankova Travel & Tours Homepage">
               {/* Full Brand Logo for standard mobile, tablet and desktop */}
               <img
                 src="/images/lankova-logo.png"
@@ -25,7 +25,10 @@ export function Footer() {
                 className="h-10 w-10 object-contain block min-[360px]:hidden rounded-md"
               />
             </Link>
-            <p className="mt-2 text-xs text-gold-300 font-medium tracking-wide">
+            <p className="mt-1.5 text-sm font-serif font-bold text-white tracking-wide">
+              {site.legalName}
+            </p>
+            <p className="mt-0.5 text-xs text-gold-300 font-medium tracking-wide">
               {site.tagline}
             </p>
           </div>
@@ -62,14 +65,18 @@ export function Footer() {
               </div>
             </a>
 
-            {/* Location */}
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-900 border border-forest-700/60 text-gold-400">
+            {/* Registered Address & Service Area */}
+            <div className="flex items-start gap-3 max-w-xs">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-900 border border-forest-700/60 text-gold-400 mt-0.5">
                 <MapPin size={16} />
               </div>
-              <div>
-                <p className="font-semibold text-ivory-100 text-sm tracking-wide">{site.location}</p>
-                <p className="text-[11px] text-ivory-100/60">{site.coverage}</p>
+              <div className="min-w-0">
+                <p className="font-semibold text-ivory-100 text-xs sm:text-sm tracking-wide leading-snug break-words">
+                  {site.address.streetAddress}
+                </p>
+                <p className="text-[11px] text-ivory-100/70 mt-0.5">
+                  {site.address.country} &bull; {site.coverage}
+                </p>
               </div>
             </div>
           </div>
@@ -166,7 +173,7 @@ export function Footer() {
         {/* Bottom Tier: Copyright & Socials */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-[11px] text-ivory-100/50">
           <p>
-            &copy; {site.year} {site.brand} &bull; {site.legalName}. All rights reserved.
+            &copy; {site.year} {site.legalName}. All rights reserved.
           </p>
 
           {/* Social Icons */}

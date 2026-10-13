@@ -74,6 +74,7 @@ export function packageSeo(pkg) {
         url: canonical,
         provider: {
           "@type": "TravelAgency",
+          "@id": `${(site.domain || "").replace(/\/$/, "")}/#organization`,
           name: site.legalName,
           url: buildCanonical("/")
         }

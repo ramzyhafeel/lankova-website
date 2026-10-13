@@ -67,6 +67,21 @@ ${form.message || 'Looking forward to your suggestions and quote.'}`;
       {/* 4 Contact Cards */}
       <section className="py-16 sm:py-20 bg-ivory-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Official Business Header */}
+          <Reveal>
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 block mb-2">
+                Official Business &amp; Contact Details
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-forest-950">
+                {site.legalName}
+              </h2>
+              <p className="mt-2 text-xs sm:text-sm text-forest-950/70">
+                Registered Sri Lanka tour operator &amp; private travel agency. Connect with our team directly or visit our office.
+              </p>
+            </div>
+          </Reveal>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* WhatsApp */}
             <Reveal delay={0}>
@@ -124,16 +139,21 @@ ${form.message || 'Looking forward to your suggestions and quote.'}`;
               </div>
             </Reveal>
 
-            {/* Location */}
+            {/* Registered Address */}
             <Reveal delay={240}>
               <div className="card-luxury flex h-full flex-col items-center rounded-2xl bg-white p-7 text-center border border-forest-800/10">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-900/10 text-forest-900 mb-4">
                   <MapPin size={24} strokeWidth={2} />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-forest-950">Operating Base</h3>
-                <p className="mt-1 text-xs text-forest-950/60 flex-1">{site.location} &bull; {site.coverage}</p>
+                <h3 className="font-serif text-lg font-bold text-forest-950">Registered Office</h3>
+                <p className="mt-1 text-xs text-forest-950/80 font-medium leading-relaxed">
+                  {site.address.streetAddress}
+                </p>
+                <p className="text-xs text-forest-950/70 font-semibold mt-0.5">
+                  {site.address.country}
+                </p>
                 <span className="mt-4 text-xs font-bold text-forest-800">
-                  Island-Wide Operations
+                  {site.coverage}
                 </span>
               </div>
             </Reveal>

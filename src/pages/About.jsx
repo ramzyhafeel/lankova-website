@@ -34,7 +34,7 @@ export function About() {
       <PageHero
         eyebrow="Who We Are"
         title="Your Trusted Sri Lanka Travel Specialists"
-        subtitle="LANKOVA is a premier Sri Lankan private tour and transportation agency dedicated to seamless, authentic, and unforgettable island experiences."
+        subtitle="Lankova Travel & Tours is a premier Sri Lankan private tour and transportation agency dedicated to seamless, authentic, and unforgettable island experiences."
         image="/hero/arugam-bay-beach.jpg"
       />
 

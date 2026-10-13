@@ -15,8 +15,11 @@ const organizationSchema = {
   logo: logoUrl,
   image: ogImage,
   description: "Lankova Travel & Tours provides private Sri Lanka tours, tailor-made travel packages and driver transportation services.",
+  telephone: site.phone,
+  email: site.email,
   address: {
     "@type": "PostalAddress",
+    streetAddress: site.address.streetAddress,
     addressCountry: "LK",
     addressLocality: "Sri Lanka"
   },
@@ -40,7 +43,7 @@ const websiteSchema = {
 
 export const seo = {
   default: {
-    title: "Lankova Sri Lanka | Private Tours, Travel Packages & Drivers",
+    title: "Lankova Travel & Tours | Private Sri Lanka Tours, Travel Packages & Drivers",
     description:
       "Explore Sri Lanka with Lankova Travel & Tours. Discover private tours, tailor-made travel packages, experienced drivers and unforgettable Sri Lankan experiences.",
     canonical: `${domain}/`,
@@ -51,7 +54,7 @@ export const seo = {
 
   routes: {
     "/": {
-      title: "Lankova Sri Lanka | Private Tours, Travel Packages & Drivers",
+      title: "Lankova Travel & Tours | Private Sri Lanka Tours, Travel Packages & Drivers",
       description:
         "Explore Sri Lanka with Lankova Travel & Tours. Discover private tours, tailor-made travel packages, experienced drivers and unforgettable Sri Lankan experiences.",
       canonical: `${domain}/`,
@@ -193,7 +196,7 @@ export const seo = {
       ]
     },
     "/about": {
-      title: "About Lankova | Sri Lanka Travel & Private Tours",
+      title: "About Lankova Travel & Tours | Sri Lanka Travel & Private Tours",
       description:
         "Learn about Lankova Travel & Tours: our dedication to authentic Sri Lankan hospitality, licensed private chauffeur guides, safety, and seamless journeys.",
       canonical: `${domain}/about`,
@@ -212,7 +215,7 @@ export const seo = {
       ]
     },
     "/contact": {
-      title: "Contact Lankova | Plan Your Sri Lanka Tour",
+      title: "Contact Lankova Travel & Tours | Plan Your Sri Lanka Tour",
       description:
         "Connect with our Sri Lanka travel specialists via WhatsApp or email. Fast response, free custom itinerary design, and reliable travel advice.",
       canonical: `${domain}/contact`,

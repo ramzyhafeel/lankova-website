@@ -12,7 +12,12 @@ export const site = {
   email: "info.lankavo@gmail.com",
   location: "Sri Lanka",
   coverage: "Island Wide Service",
-  year: 2024,
+  address: {
+    streetAddress: "538/16, Rajina Mawatha, Prison Road, Dalupotha",
+    country: "Sri Lanka",
+    full: "538/16, Rajina Mawatha, Prison Road, Dalupotha, Sri Lanka",
+  },
+  year: new Date().getFullYear(),
 
   facebookUrl: "https://facebook.com",
   instagramUrl: "https://instagram.com",
