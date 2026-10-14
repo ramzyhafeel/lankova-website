@@ -15,6 +15,7 @@ import {
   Building2,
   Compass,
   Award,
+  Car,
 } from 'lucide-react';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { JourneyLine } from '../components/ui/JourneyLine';
@@ -140,17 +141,31 @@ export function Hotels() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Half Board Package Pricing Strip */}
           <Reveal>
-            <div className="mb-16 rounded-3xl border border-gold-400/35 bg-white p-6 sm:p-9 shadow-md">
-              <div className="text-center max-w-2xl mx-auto mb-7">
+            <div className="mb-16 rounded-3xl border-2 border-gold-400 bg-white p-6 sm:p-9 shadow-lg relative overflow-hidden ring-4 ring-gold-400/20">
+              <div className="absolute top-0 right-0 z-10">
+                <div className="bg-gradient-to-l from-gold-500 via-gold-400 to-gold-500 text-forest-950 text-[10px] sm:text-[11px] font-black tracking-widest uppercase py-1.5 px-4 rounded-bl-2xl shadow-sm flex items-center gap-1.5">
+                  <Sparkles size={12} className="fill-forest-950 text-forest-950" />
+                  <span>Best All-In-One Value • Transport Included</span>
+                </div>
+              </div>
+
+              <div className="text-center max-w-3xl mx-auto mb-7">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-gold-400/15 border border-gold-400/30 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-amber-800 mb-2">
                   <Utensils size={12} />
-                  <span>Half Board Hotel Arrangement Rates (Dinner &amp; Breakfast Included)</span>
+                  <span>All-In-One Holiday Stays</span>
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-950">
                   Half Board Hotel + Private Transport Pricing
                 </h2>
-                <p className="mt-1.5 text-xs sm:text-sm text-forest-950/75">
-                  Every Half Board rate includes your handpicked hotel stay, <strong className="text-forest-950">Daily Dinner &amp; Breakfast</strong> provided by the hotel, and private air-conditioned transport with an English-speaking chauffeur.
+
+                {/* High-Impact Transport Highlight Pill */}
+                <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-emerald-50 border-2 border-emerald-500/50 px-4 py-1.5 text-xs font-black text-emerald-950 shadow-xs">
+                  <Car size={16} className="text-emerald-700 shrink-0" strokeWidth={2.4} />
+                  <span>100% Dedicated Private Vehicle, Chauffeur, Fuel &amp; Tolls FULLY INCLUDED!</span>
+                </div>
+
+                <p className="mt-3 text-xs sm:text-sm text-forest-950/80 leading-relaxed font-medium">
+                  Every Half Board rate includes your handpicked hotel stay, <strong className="text-forest-950 font-bold">Daily Dinner &amp; Breakfast</strong> provided by the hotel, plus your dedicated <strong className="text-forest-950 font-bold">private air-conditioned vehicle, licensed chauffeur, all fuel, and expressway highway tolls</strong> for your entire itinerary. No separate car hire needed!
                 </p>
               </div>
 
@@ -164,16 +179,19 @@ export function Hotels() {
                 ].map((tier) => (
                   <div
                     key={tier.days}
-                    className="rounded-2xl border border-forest-800/12 bg-ivory-50/90 p-4 text-center transition-all hover:border-gold-400 hover:bg-white hover:shadow-sm"
+                    className="rounded-2xl border-2 border-forest-950 bg-forest-950 p-4 text-center transition-all hover:border-gold-400 hover:scale-[1.02] shadow-sm text-white"
                   >
-                    <span className="text-xs font-bold uppercase tracking-wider text-forest-800 block">
+                    <span className="text-xs font-bold uppercase tracking-wider text-gold-400 block">
                       {tier.days}
                     </span>
-                    <p className="font-serif text-2xl sm:text-3xl font-extrabold text-forest-950 mt-1">
+                    <p className="font-serif text-2xl sm:text-3xl font-extrabold text-white mt-1">
                       ${tier.price}
                     </p>
-                    <span className="text-[11px] text-forest-950/65 mt-0.5 block font-medium">
+                    <span className="text-[11px] text-ivory-100/70 mt-0.5 block font-medium">
                       per person
+                    </span>
+                    <span className="mt-2 text-[10px] font-extrabold text-emerald-300 block bg-forest-900/90 rounded py-0.5">
+                      Car + Hotel + Food
                     </span>
                   </div>
                 ))}

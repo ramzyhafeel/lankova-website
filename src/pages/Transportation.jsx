@@ -1,4 +1,5 @@
-import { Plane, ArrowRight, ShieldCheck, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Plane, ArrowRight, ShieldCheck, Check, Sparkles, Utensils, Bed } from 'lucide-react';
 import { PageHero } from '../components/ui/PageHero';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { VehicleCard } from '../components/ui/VehicleCard';
@@ -95,6 +96,39 @@ export function Transportation() {
                     </span>
                   </div>
                 ))}
+              </div>
+
+              {/* Half Board Upgrade Banner */}
+              <div className="mt-8 rounded-2xl border-2 border-gold-400/50 bg-gradient-to-r from-forest-950 via-forest-900 to-forest-950 p-5 text-white flex flex-col md:flex-row items-center justify-between gap-4 shadow-md">
+                <div className="flex items-center gap-3.5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold-400/20 text-gold-400 border border-gold-400/40">
+                    <Sparkles size={20} />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-gold-400">
+                        Smart Traveler Upgrade • Best Value
+                      </span>
+                      <span className="rounded bg-emerald-600 px-1.5 py-0.2 text-[9px] font-bold uppercase tracking-tight text-white">
+                        Transport Included
+                      </span>
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-white mt-0.5">
+                      Want Hotel Stays &amp; Daily Dinner/Breakfast Included Too?
+                    </h4>
+                    <p className="text-xs text-ivory-100/75 leading-relaxed">
+                      Upgrade to our all-in-one <strong className="text-white">Half Board Package</strong>: includes your private A/C vehicle &amp; chauffeur PLUS verified 3★, 4★, or 5★ hotels and two hot meals daily from just <span className="font-bold text-gold-300">$55/person</span>.
+                    </p>
+                  </div>
+                </div>
+
+                <Link
+                  to="/hotels"
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-forest-950 hover:from-gold-400 hover:to-gold-300 transition-all shadow-sm whitespace-nowrap active:scale-95"
+                >
+                  <span>Explore Half Board</span>
+                  <ArrowRight size={13} />
+                </Link>
               </div>
             </div>
           </Reveal>

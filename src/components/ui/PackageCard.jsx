@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, MapPin, MessageCircle, Car, Utensils } from 'lucide-react';
+import { ArrowRight, Clock, MapPin, MessageCircle, Car, Utensils, Sparkles } from 'lucide-react';
 import { createWhatsAppLink, whatsappMessages } from '../../lib/whatsapp';
 import { getPackagePricing } from '../../data/packages';
 
@@ -69,12 +69,12 @@ export function PackageCard({ pkg }) {
           </p>
 
           {/* Dual Pricing Box: Transport vs Half Board */}
-          <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl bg-ivory-100/90 p-3 border border-forest-800/10">
-            {/* Transport Per Person */}
+          <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl bg-ivory-100/90 p-2.5 border border-forest-800/10">
+            {/* Transport Only */}
             <div className="rounded-lg bg-white p-2.5 border border-forest-800/8 flex flex-col justify-between">
               <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-forest-800">
                 <Car size={11} className="text-gold-600 shrink-0" />
-                <span>Transport</span>
+                <span>Transport Only</span>
               </div>
               <div className="mt-1 flex items-baseline gap-1">
                 <span className="font-serif text-xl font-extrabold text-forest-950">
@@ -83,24 +83,29 @@ export function PackageCard({ pkg }) {
                 <span className="text-[10px] font-medium text-forest-950/55">/ person</span>
               </div>
               <span className="text-[10px] text-forest-950/60 mt-0.5 block">
-                Vehicle &amp; Chauffeur
+                Car &amp; Driver Only
               </span>
             </div>
 
-            {/* Half Board (Hotel with Dinner & Breakfast) */}
-            <div className="rounded-lg bg-forest-950 p-2.5 border border-gold-400/30 text-white flex flex-col justify-between">
-              <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-gold-400">
-                <Utensils size={11} className="text-gold-400 shrink-0" />
-                <span>Half Board</span>
+            {/* Half Board (All-In-One: Transport + Hotel + Meals) */}
+            <div className="relative rounded-lg bg-forest-950 p-2.5 border border-gold-400 text-white flex flex-col justify-between shadow-xs ring-1 ring-gold-400/30">
+              <div className="flex items-center justify-between gap-1">
+                <div className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-gold-300">
+                  <Sparkles size={10} className="fill-gold-300 text-gold-300" />
+                  <span>Half Board</span>
+                </div>
+                <span className="rounded bg-gold-400 text-forest-950 text-[9px] font-black px-1.5 py-0.2 uppercase tracking-tight">
+                  Best Value
+                </span>
               </div>
               <div className="mt-1 flex items-baseline gap-1">
                 <span className="font-serif text-xl font-extrabold text-white">
                   ${halfBoardPrice}
                 </span>
-                <span className="text-[10px] font-medium text-ivory-100/65">/ person</span>
+                <span className="text-[10px] font-medium text-ivory-100/70">/ person</span>
               </div>
-              <span className="text-[10px] text-gold-300/90 mt-0.5 block truncate">
-                Hotel + Dinner &amp; B&apos;fast
+              <span className="text-[10px] font-bold text-emerald-400 mt-0.5 block leading-tight">
+                Hotel + Food + Transport!
               </span>
             </div>
           </div>

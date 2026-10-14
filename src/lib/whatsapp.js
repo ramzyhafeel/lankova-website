@@ -18,7 +18,7 @@ export const whatsappMessages = {
   packageInquiry: (packageName, days, transportPrice, halfBoardPrice) =>
     `Hello LANKOVA, I am interested in the ${packageName}${days ? ` (${days} Days)` : ''}${
       transportPrice && halfBoardPrice
-        ? ` — Transport: $${transportPrice}/pp | Half Board (Hotel + Dinner & Breakfast): $${halfBoardPrice}/pp`
+        ? ` — Transport Only: $${transportPrice}/pp | Half Board All-In-One (Hotel + Food + Transport Included): $${halfBoardPrice}/pp`
         : ''
     }. Please share details and availability.`,
   hotelInquiry: (tier = 'accommodations') =>

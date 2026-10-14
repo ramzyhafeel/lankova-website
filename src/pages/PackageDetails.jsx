@@ -102,8 +102,13 @@ export function PackageDetails() {
               <span className="font-extrabold text-sm text-forest-950">${pkg.transportPrice} <span className="text-[11px] font-medium text-forest-950/60">/ person</span></span>
             </div>
             <div>
-              <span className="text-[10px] uppercase font-bold text-gold-600 block">Half Board (Hotel)</span>
-              <span className="font-extrabold text-sm text-forest-950">${pkg.halfBoardPrice} <span className="text-[11px] font-medium text-forest-950/60">/ person (Dinner &amp; B&apos;fast)</span></span>
+              <span className="text-[10px] uppercase font-bold text-gold-600 block">Half Board (All-In-One)</span>
+              <span className="font-extrabold text-sm text-forest-950">
+                ${pkg.halfBoardPrice}{' '}
+                <span className="text-[11px] font-bold text-emerald-700">
+                  (Car + Hotel + Food Included)
+                </span>
+              </span>
             </div>
             <div>
               <span className="text-[10px] uppercase font-bold text-gold-600 block">Destinations</span>
@@ -337,22 +342,34 @@ export function PackageDetails() {
                     </div>
                   </div>
 
-                  <div className="rounded-xl border border-gold-400/40 bg-forest-950 p-3.5 text-white flex items-center justify-between">
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-gold-400 block">
-                        Half Board Package
-                      </span>
-                      <span className="text-[11px] text-ivory-100/75">
-                        Hotel + Dinner &amp; Breakfast
+                  <div className="relative rounded-xl border-2 border-gold-400 bg-forest-950 p-3.5 text-white shadow-md">
+                    <div className="flex items-center justify-between gap-1 mb-1.5">
+                      <div className="flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-gold-300">
+                        <Sparkles size={12} className="fill-gold-300 text-gold-300" />
+                        <span>Half Board Package</span>
+                      </div>
+                      <span className="rounded bg-gold-400 text-forest-950 text-[9px] font-black px-1.5 py-0.2 uppercase tracking-wide">
+                        Best Value
                       </span>
                     </div>
-                    <div className="text-right">
-                      <span className="font-serif text-2xl font-extrabold text-white">
-                        ${pkg.halfBoardPrice}
-                      </span>
-                      <span className="text-[10px] font-medium text-gold-300 block">
-                        per person
-                      </span>
+
+                    <div className="flex items-baseline justify-between">
+                      <div>
+                        <span className="text-xs font-bold text-emerald-400 block">
+                          ✓ 100% Private Transport Included!
+                        </span>
+                        <span className="text-[11px] text-ivory-100/75">
+                          Hotel Stay + Daily Dinner &amp; Breakfast
+                        </span>
+                      </div>
+                      <div className="text-right">
+                        <span className="font-serif text-2xl font-extrabold text-white">
+                          ${pkg.halfBoardPrice}
+                        </span>
+                        <span className="text-[10px] font-medium text-gold-300 block">
+                          per person
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
