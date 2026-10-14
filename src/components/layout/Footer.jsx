@@ -170,10 +170,22 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Tier: Copyright & Socials */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-[11px] text-ivory-100/50">
-          <p>
+        {/* Bottom Tier: Copyright, Credits & Socials */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 text-[11px] text-ivory-100/60">
+          <p className="text-center md:text-left">
             &copy; {site.year} {site.legalName}. All rights reserved.
+          </p>
+
+          <p className="text-center text-ivory-100/70">
+            Designed &amp; Developed by{' '}
+            <a
+              href="https://ramzyhafeel.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-400 hover:text-gold-300 font-semibold transition-colors underline decoration-gold-400/40 underline-offset-2"
+            >
+              Mohamed Ramzy
+            </a>
           </p>
 
           {/* Social Icons */}
