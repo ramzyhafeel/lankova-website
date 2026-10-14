@@ -26,7 +26,11 @@ const organizationSchema = {
   areaServed: {
     "@type": "Country",
     name: "Sri Lanka"
-  }
+  },
+  sameAs: [
+    site.facebookUrl,
+    site.instagramUrl
+  ]
 };
 
 const websiteSchema = {

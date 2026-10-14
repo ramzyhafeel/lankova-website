@@ -19,8 +19,8 @@ export const site = {
   },
   year: new Date().getFullYear(),
 
-  facebookUrl: "https://facebook.com",
-  instagramUrl: "https://instagram.com",
+  facebookUrl: "https://www.facebook.com/share/14vfAiRBfxC/",
+  instagramUrl: "https://instagram.com/lankova.lk?mdxt=amx3YmdqcmN2NXJr",
   tripAdvisorUrl: "https://tripadvisor.com",
 };
 
