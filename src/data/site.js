@@ -21,7 +21,7 @@ export const site = {
 
   facebookUrl: "https://www.facebook.com/share/14vfAiRBfxC/",
   instagramUrl: "https://instagram.com/lankova.lk?mdxt=amx3YmdqcmN2NXJr",
-  tripAdvisorUrl: "https://tripadvisor.com",
+  tripAdvisorUrl: "https://www.tripadvisor.com/Attraction_Review-g297897-d34760321-Reviews-Lankova_Travel_Tours-Negombo_Western_Province.html",
 };
 
 export const navLinks = [

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck } from 'lucide-react';
 import { site, navLinks } from '../../data/site';
 import { createWhatsAppLink, whatsappMessages } from '../../lib/whatsapp';
+import { TripAdvisorBadge } from '../ui/TripAdvisorBadge';
 
 export function Footer() {
   return (
@@ -10,7 +11,7 @@ export function Footer() {
         {/* Top Contact Tier */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 pb-10 border-b border-forest-800/40">
           {/* Official Logo Brand */}
-          <div className="shrink-0">
+          <div className="shrink-0 max-w-xs">
             <Link to="/" className="inline-block" aria-label="Lankova Travel & Tours Homepage">
               {/* Full Brand Logo for standard mobile, tablet and desktop */}
               <img
@@ -89,6 +90,28 @@ export function Footer() {
             >
               Contact Us
             </Link>
+          </div>
+        </div>
+
+        {/* Dedicated Trust & TripAdvisor Accreditation Tier */}
+        <div className="my-10 rounded-2xl bg-gradient-to-r from-forest-900/90 via-forest-900/50 to-forest-900/90 border border-forest-800/80 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 backdrop-blur-sm shadow-xl">
+          <div className="text-center md:text-left max-w-lg">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 border border-gold-400/35 text-gold-300 text-[10.5px] font-bold uppercase tracking-wider mb-2.5">
+              <ShieldCheck size={14} className="text-gold-400 shrink-0" />
+              <span>Verified Tour Operator Accreditation</span>
+            </div>
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide">
+              Recognized on TripAdvisor
+            </h3>
+            <p className="mt-1.5 text-xs sm:text-sm text-ivory-100/75 leading-relaxed">
+              Read authentic feedback, traveler ratings, and recommendations from guests worldwide who discovered Sri Lanka with Lankova Travel &amp; Tours.
+            </p>
+          </div>
+
+          <div className="shrink-0 flex justify-center">
+            <div className="p-1 rounded-2xl bg-gradient-to-b from-gold-400/35 via-white/10 to-transparent shadow-xl">
+              <TripAdvisorBadge uniq="149" />
+            </div>
           </div>
         </div>
 

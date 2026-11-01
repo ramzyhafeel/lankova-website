@@ -155,7 +155,6 @@ body {
               border-color 300ms ease;
 }
 
-
 /* Image zoom inside card */
 .zoom-card .zoom-image {
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
@@ -280,4 +279,84 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ==========================================================================
+   TripAdvisor Professional Self-Serve Property Widget Enhancements
+   ========================================================================== */
+.tripadvisor-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.TA_selfserveprop {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-height: 120px;
+}
+
+.TA_selfserveprop .TA_links {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 240px !important;
+}
+
+.TA_selfserveprop .TA_links li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Injected Widget #CDSWIDSSP Luxury Card Polish */
+.TA_selfserveprop #CDSWIDSSP {
+  margin: 0 auto !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.18) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.TA_selfserveprop #CDSWIDSSP:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.35) !important;
+}
+
+.TA_selfserveprop #CDSWIDSSP .widSSPData {
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  background-color: #ffffff !important;
+}
+
+.TA_selfserveprop #CDSWIDSSP .withBorder {
+  border: 1.5px solid #00eb5b !important;
+}
+
+/* Fallback Card Before / Without JavaScript */
+.ta-ssp-fallback-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 240px !important;
+  min-height: 120px !important;
+  padding: 16px 14px !important;
+  background-color: #ffffff !important;
+  border: 1.5px solid #00eb5b !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25) !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.ta-ssp-fallback-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.35) !important;
+  border-color: #00c74d !important;
 }

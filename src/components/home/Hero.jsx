@@ -8,6 +8,7 @@ import {
   Headphones,
 } from 'lucide-react';
 import { HeroFirstEyeShowcase } from './HeroFirstEyeShowcase';
+import { TripAdvisorBadge } from '../ui/TripAdvisorBadge';
 
 const heroPlaces = [
   {
@@ -173,7 +174,7 @@ export function Hero() {
           <HeroFirstEyeShowcase />
         </div>
 
-        {/* Bottom Dark Area: Bottom Trust Badges & Italic Quote */}
+        {/* Bottom Dark Area: Bottom Trust Badges, TripAdvisor Badge & Italic Quote */}
         <div className="w-full max-w-4xl mx-auto mt-6 sm:mt-8 text-center flex flex-col items-center">
           {/* Bottom 3 Trust Badges (Government Licensed | Trusted by Travelers | 24/7 Support) */}
           <div className="flex flex-wrap items-center justify-center divide-x divide-white/20 text-[10.5px] sm:text-xs font-semibold text-ivory-100/85">
@@ -191,8 +192,31 @@ export function Hero() {
             </div>
           </div>
 
+          {/* Dedicated TripAdvisor Verification Showcase */}
+          <div className="mt-6 sm:mt-8 w-full max-w-xl mx-auto rounded-2xl bg-forest-900/60 border border-gold-400/30 p-5 sm:p-6 backdrop-blur-md shadow-2xl flex flex-col items-center justify-center text-center">
+            {/* Verified Tour Operator Accreditation Pill */}
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-400/15 border border-gold-400/35 text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-gold-300 shadow-sm mb-2">
+              <ShieldCheck size={14} className="text-gold-400 shrink-0" />
+              <span>Verified Tour Operator Accreditation</span>
+            </div>
+
+            {/* Recognized on TripAdvisor Heading */}
+            <h2 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide mb-1.5">
+              Recognized on TripAdvisor
+            </h2>
+
+            <p className="text-xs text-ivory-100/75 max-w-md mx-auto mb-4 leading-relaxed">
+              Read authentic feedback, traveler ratings, and recommendations from guests worldwide who discovered Sri Lanka with Lankova Travel &amp; Tours.
+            </p>
+
+            {/* TripAdvisor Badge */}
+            <div className="p-1 rounded-2xl bg-gradient-to-b from-gold-400/35 via-white/10 to-transparent shadow-xl">
+              <TripAdvisorBadge uniq="148" />
+            </div>
+          </div>
+
           {/* Signature Quote */}
-          <blockquote className="mt-4 sm:mt-5 font-serif italic text-sm sm:text-base lg:text-lg text-ivory-100/90 max-w-xl leading-relaxed">
+          <blockquote className="mt-5 sm:mt-6 font-serif italic text-sm sm:text-base lg:text-lg text-ivory-100/90 max-w-xl leading-relaxed">
             “Your journey is not just transportation. It is your Sri Lankan experience.”
           </blockquote>
 
